@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id veh:</strong>
+  <%= @assigned.id_veh %>
+</p>
+
+<p>
+  <strong>Run driv:</strong>
+  <%= @assigned.run_driv %>
+</p>
+
+<p>
+  <strong>Ini assigned:</strong>
+  <%= @assigned.ini_assigned %>
+</p>
+
+<p>
+  <strong>Fin assigned:</strong>
+  <%= @assigned.fin_assigned %>
+</p>
+
+<%= button_to 'Editar', edit_assigned_path(@assigned), :method => 'get', :class => 'btn btn-warning' %> |
+<%= button_to 'Volver', assigneds_path, :method => 'get', :class => 'btn btn-default' %>

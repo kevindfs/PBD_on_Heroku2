@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mes vencimiento revisión técnica:</strong>
+  <%= @technical_review_expiration.mes_venc_rev_tec %>
+</p>
+
+<p>
+  <strong>Dígito correspondiente al mes:</strong>
+  <%= @technical_review_expiration.num_venc_rev_tec %>
+</p>
+
+<%= button_to 'Editar', edit_technical_review_expiration_path(@technical_review_expiration)  , :method => 'get', :class => 'btn btn-warning'%> |
+<%= button_to 'Volver', technical_review_expirations_path , :method => 'get', :class => 'btn btn-default' %>

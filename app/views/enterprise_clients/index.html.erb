@@ -1,0 +1,51 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+  <h1>Listado de clientes asociados a una empresa</h1>
+
+<div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de clientes asociados a una empresa</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible ver, agregar o modificar los clientes que pertenecen a una empresa afiliada con ActiveCab.<br>
+        
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+    <thead>
+      <tr>
+        <th>Rut cliente</th>
+        <th>Rut empresa</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @enterprise_clients.each do |enterprise_client| %>
+        <tr>
+          <td><%= enterprise_client.run_cli %></td>
+          <td><%= enterprise_client.rut_ent %></td>
+          <td><%= button_to 'Ver', enterprise_client, :method => 'get', :class => 'btn btn-info'%></td>
+          <td><%= button_to 'Editar', edit_enterprise_client_path(enterprise_client), :method => 'get', :class => 'btn btn-warning' %></td>
+          <td><%= button_to 'Eliminar', enterprise_client, method: :delete, data: { confirm: '¿Confirma eliminación?' }, :class => 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= button_to 'Nuevo', new_enterprise_client_path, :method => 'get', :class => 'btn btn-default' %>
+
+<% end %>
+
+</div></div></div></div>

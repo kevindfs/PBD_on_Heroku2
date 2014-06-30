@@ -1,0 +1,25 @@
+  <%= form_for(@enterprise_client) do |f| %>
+    <% if @enterprise_client.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@enterprise_client.errors.count, "error") %> prohibited this enterprise_client from being saved:</h2>
+
+        <ul>
+        <% @enterprise_client.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :Run_cliente %><br>
+      <%= f.text_field :run_cli %>
+    </div>
+    <div class="field">
+      <%= f.label :Rut_empresa %><br>
+      <%= f.text_field :rut_ent %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>

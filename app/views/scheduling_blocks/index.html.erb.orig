@@ -1,0 +1,49 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<h1>Listado de bloques horario</h1>
+
+  <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de bloques horario</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible modificar los bloques horario que podrán solicitar los operadores para la asignación de viajes a conductores.<br>
+        
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+  <thead>
+    <tr>
+      <th>Inicio bloque</th>
+      <th>Fin bloque</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scheduling_blocks.each do |scheduling_block| %>
+      <tr>
+        <td><%= scheduling_block.ini_bloq %></td>
+        <td><%= scheduling_block.fin_bloq %></td>
+        <td><%= button_to 'Ver', scheduling_block , :method => 'get', :class => 'btn btn-info'%></td>
+        <td><%= button_to 'Editar', edit_scheduling_block_path(scheduling_block)  , :method => 'get', :class => 'btn btn-warning'%></td>
+        <td><%= button_to 'Eliminar', scheduling_block, method: :delete, data: { confirm: '¿Confirma eliminación?' } , :class => 'btn btn-danger'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+</div></div></div></div>
+
+<%= button_to 'Nuevo', new_scheduling_block_path , :method => 'get', :class => 'btn btn-default'%>
+

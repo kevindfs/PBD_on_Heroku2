@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  run_cli: MyString
+  nom_cli: MyString
+  apells_cli: MyString
+  tel1_cli: MyString
+  tel2_cli: MyString
+  email_cli: MyString
+
+two:
+  run_cli: MyString
+  nom_cli: MyString
+  apells_cli: MyString
+  tel1_cli: MyString
+  tel2_cli: MyString
+  email_cli: MyString

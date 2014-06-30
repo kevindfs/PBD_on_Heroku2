@@ -1,0 +1,46 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Run conductor:</strong>
+  <%= @driver.run_driv %>
+</p>
+
+<p>
+  <strong>Nombre conductor:</strong>
+  <%= @driver.nom_cond %>
+</p>
+
+<p>
+  <strong>Apellidos conductor:</strong>
+  <%= @driver.apells_cond %>
+</p>
+
+<p>
+  <strong>Teléfono 1 conductor:</strong>
+  <%= @driver.tel1_cond %>
+</p>
+
+<p>
+  <strong>Teléfono 2 conductor:</strong>
+  <%= @driver.tel2_cond %>
+</p>
+
+<p>
+  <strong>Email conductor:</strong>
+  <%= @driver.email_cond %>
+</p>
+
+<p>
+  <strong>Fecha vencimiento licencia conducir:</strong>
+  <%= @driver.venc_licenc_cond %>
+</p>
+
+<%= button_to 'Editar', edit_driver_path(@driver), :method => 'get', :class => 'btn btn-warning' %> |
+<%= button_to 'Volver', drivers_path, :method => 'get', :class => 'btn btn-default'%>
+
+</div></div></div>

@@ -1,0 +1,32 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+  <%= form_for(@owner_commission) do |f| %>
+    <% if @owner_commission.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@owner_commission.errors.count, "error") %> prohibited this owner_commission from being saved:</h2>
+
+        <ul>
+        <% @owner_commission.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :Porcentaje_comisión_propietario %><br>
+      <%= f.text_field :porcent_comi_prop %>
+    </div>
+    <div class="field">
+      <%= f.label :Fecha_inicio_comisión_propietario %><br>
+      <%= f.date_select :ini_comi_prop %>
+    </div>
+    <div class="field">
+      <%= f.label :Fecha_término_comisión_propietario %><br>
+      <%= f.date_select :fin_comi_prop %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+<% end %>

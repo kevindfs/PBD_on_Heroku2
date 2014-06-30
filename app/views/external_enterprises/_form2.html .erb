@@ -1,0 +1,62 @@
+<%= form_for(@external_enterprise) do |f| %>
+  <% if @external_enterprise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@external_enterprise.errors.count, "error") %> prohibited this external_enterprise from being saved:</h2>
+
+      <ul>
+      <% @external_enterprise.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Rut_empresa %><br>
+    <%= f.text_field :rut_ent %>
+  </div>
+  <div class="field">
+    <%= f.label :Giro_empresa %><br>
+    <%= f.text_field :giro_emp %>
+  </div>
+  <div class="field">
+    <%= f.label :Nombre_empresa %><br>
+    <%= f.text_field :nom_emp %>
+  </div>
+  <div class="field">
+    <%= f.label :Dirección_empresa %><br>
+    <%= f.text_field :dir_emp %>
+  </div>
+  <div class="field">
+    <%= f.label :Teléfono_1_empresa %><br>
+    <%= f.text_field :tel1_emp %>
+  </div>
+  <div class="field">
+    <%= f.label :Teléfono_2_empresa%><br>
+    <%= f.text_field :tel2_emp %>
+  </div>
+  <div class="field">
+    <%= f.label :Email_empresa %><br>
+    <%= f.text_field :email_emp %>
+  </div>
+  <div class="field">
+    <%= f.label :Estado_de_convenio %><br>
+    <%= f.text_field :est_conv_emp, :value=>'Activo' %>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha_inicio_convenio %><br>
+    <%= f.date_select :ini_conv_emp %>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha_término_convenio %><br>
+    <%= f.date_select :fin_conv_emp %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Descripción_convenio%><br>
+    <%= f.text_area :descrip_conv_emp %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

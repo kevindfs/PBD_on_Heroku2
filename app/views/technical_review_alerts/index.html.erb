@@ -1,0 +1,49 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+  <h1>Listado de alertas de revisión técnica</h1>
+
+  <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de alertas de revisión técnica</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible modificar las alertas de revisión técnica que se emitiran cuando un vehículo deba asistir.<br>
+        
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+
+    <thead>
+      <tr>
+        <th>Alertas de revisión técnica</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @technical_review_alerts.each do |technical_review_alert| %>
+        <tr>
+          <td><%= technical_review_alert.plant_alert_rev_tec %></td>
+          <td><%= button_to 'Ver', technical_review_alert , :method => 'get', :class => 'btn btn-info'%></td>
+          <td><%= button_to 'Editar', edit_technical_review_alert_path(technical_review_alert), :method => 'get', :class => 'btn btn-warning'%></td>
+          <td><%= button_to 'Eliminar', technical_review_alert, method: :delete, data: { confirm: '¿Confirma eliminación?' } , :class => 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= button_to 'Nuevo', new_technical_review_alert_path , :method => 'get', :class => 'btn btn-default' %>
+
+<% end %>
+</div></div></div></div>

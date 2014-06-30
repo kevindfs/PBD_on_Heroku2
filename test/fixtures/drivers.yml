@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  run_driv: MyString
+  nom_cond: MyString
+  apells_cond: MyString
+  tel1_cond: MyString
+  tel2_cond: MyString
+  email_cond: MyString
+  venc_licenc_cond: 2014-06-23
+
+two:
+  run_driv: MyString
+  nom_cond: MyString
+  apells_cond: MyString
+  tel1_cond: MyString
+  tel2_cond: MyString
+  email_cond: MyString
+  venc_licenc_cond: 2014-06-23

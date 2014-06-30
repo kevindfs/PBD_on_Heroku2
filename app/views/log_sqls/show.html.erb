@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tms log sql:</strong>
+  <%= @log_sql.tms_log_sql %>
+</p>
+
+<p>
+  <strong>Tabla log sql:</strong>
+  <%= @log_sql.tabla_log_sql %>
+</p>
+
+<p>
+  <strong>Operacion log sql:</strong>
+  <%= @log_sql.operac_log_sql %>
+</p>
+
+<p>
+  <strong>Usuario modificador:</strong>
+  <%= @log_sql.usuar_log_sql %>
+</p>
+
+<p>
+  <strong>Datos antes:</strong>
+  <%= @log_sql.dat_antes_log_sql %>
+</p>
+
+<p>
+  <strong>Datos después:</strong>
+  <%= @log_sql.dat_desp_log_sql %>
+</p>
+
+<p>
+  <strong>Operación detallada:</strong>
+  <%= @log_sql.ope_det_log_sql %>
+</p>
+
+<%= button_to 'Editar', edit_log_sql_path(@log_sql) , :method => 'get', :class => 'btn btn-warning'%> |
+<%= button_to 'Volver', log_sqls_path , :method => 'get', :class => 'btn btn-default'%>

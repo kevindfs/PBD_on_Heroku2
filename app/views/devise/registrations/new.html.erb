@@ -1,0 +1,70 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+            <h2 class="center">Registrate en ActiveCab</h2>
+            <hr>
+            <br><br>
+
+            <div class="row">
+                    <div class="col-lg-6">
+
+
+                <div class="panel panel-primary shd">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Registro</h3>
+                  </div>
+                  <div class="panel-body center">
+                  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                    <%= devise_error_messages! %>
+
+                    <p><%= f.label :email %>                       
+                    <%= f.email_field :email, :autofocus => true %><br />
+
+                    <p><%= f.label :nombre %>
+                    <%= f.text_field :nombre %><br />
+
+                    <p><%= f.label :apellidos %>  
+                    <%= f.text_field :apellidos %><br />
+
+                    <p><%= f.label :telefono1 %>  
+                    <%= f.text_field :telefono1 %><br />
+
+                    <p><%= f.label :telefono2 %> 
+                    <%= f.text_field :telefono2 %><br />
+
+                    <p><%= f.label :rut %> 
+                    <%= f.text_field :rut %><br />
+
+
+                    <p><%= f.label :password %>
+                    <%= f.password_field :password %><br />
+
+                    <p><%= f.label :Confirma_password %>
+                    <%= f.password_field :password_confirmation %><br />
+
+                    <p class="center"><%= f.submit "Registrar", :class =>'btn btn-primary'%>
+                  <% end %>
+
+                  <%= render "devise/shared/links" %>
+              </div>
+            </div>
+
+
+
+
+
+
+                        
+                    </div>
+                    <div class="col-lg-6">
+                        
+                    </div>
+
+            
+
+      </div>
+    </div>
+  </div>
+</div>

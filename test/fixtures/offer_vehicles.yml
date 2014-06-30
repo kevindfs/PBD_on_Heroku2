@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_block: 1
+  run_driv: MyString
+  est_oferta_veh: MyString
+
+two:
+  id_block: 1
+  run_driv: MyString
+  est_oferta_veh: MyString

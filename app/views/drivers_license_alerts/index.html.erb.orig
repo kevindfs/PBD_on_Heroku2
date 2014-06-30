@@ -1,0 +1,46 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<h1>Listado de alertas licencia de conducir</h1>
+<br><br><br>
+<div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de alertas licencia de conducir</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible ver, agregar o modificar alertas de licencia de conducir.<br>
+        
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+  <thead>
+    <tr>
+      <th>Alerta licencia conducir</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @drivers_license_alerts.each do |drivers_license_alert| %>
+      <tr>
+        <td><%= drivers_license_alert.plant_alert_licenc %></td>
+        <td><%= button_to 'Ver', drivers_license_alert, :method => 'get', :class => 'btn btn-info' %></td>
+        <td><%= button_to 'Editar', edit_drivers_license_alert_path(drivers_license_alert), :method => 'get', :class => 'btn btn-warning' %></td>
+        <td><%= button_to 'Eliminar', drivers_license_alert, method: :delete, data: { confirm: '¿Confirma eliminación?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+</div></div></div></div>
+
+<%= button_to 'Nuevo', new_drivers_license_alert_path, :method => 'get', :class => 'btn btn-default' %>
+

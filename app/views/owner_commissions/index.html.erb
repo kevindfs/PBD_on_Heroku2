@@ -1,0 +1,52 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+  <h1>Listado de comisión de dueños de vehículos</h1>
+
+  <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de comisiones</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible modificar la comisión que recibirán los dueños, la ganancia que estos tendrán como retribución al entregar su(s) vehículo(s) como prestamo a ActiveCab<br>
+        
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+    <thead>
+      <tr>
+        <th>Porcentaje de comisión</th>
+        <th>Fecha inicio comisión</th>
+        <th>Fecha término comisión</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @owner_commissions.each do |owner_commission| %>
+        <tr>
+          <td><%= owner_commission.porcent_comi_prop %></td>
+          <td><%= owner_commission.ini_comi_prop %></td>
+          <td><%= owner_commission.fin_comi_prop %></td>
+          <td><%= button_to 'Ver', owner_commission , :method => 'get', :class => 'btn btn-info'%></td>
+          <td><%= button_to 'Editar', edit_owner_commission_path(owner_commission)  , :method => 'get', :class => 'btn btn-warning'%></td>
+          <td><%= button_to 'Eliminar', owner_commission, method: :delete, data: { confirm: '¿Confirma eliminación?' } , :class => 'btn btn-danger'%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= button_to 'Nuevo', new_owner_commission_path , :method => 'get', :class => 'btn btn-default' %>
+
+<% end %>
+</div></div></div></div>

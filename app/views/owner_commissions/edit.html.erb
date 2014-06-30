@@ -1,0 +1,10 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+	<h1>Editar Comisión de dueños de vehículos</h1>
+
+	<%= render 'form' %>
+
+	<%= button_to 'Ver', @owner_commission, :method => 'get', :class => 'btn btn-info'%> |
+	<%= button_to 'Volver', owner_commissions_path, :method => 'get', :class => 'btn btn-default' %>
+
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_off_veh: 1
+  run_driv: MyString
+  run_cli: MyString
+
+two:
+  id_off_veh: 1
+  run_driv: MyString
+  run_cli: MyString

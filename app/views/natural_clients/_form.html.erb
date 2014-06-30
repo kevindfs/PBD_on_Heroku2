@@ -1,0 +1,25 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+  <%= form_for(@natural_client) do |f| %>
+    <% if @natural_client.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@natural_client.errors.count, "error") %> prohibited this natural_client from being saved:</h2>
+
+        <ul>
+        <% @natural_client.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :Run_cliente %><br>
+      <%= f.text_field :run_cli %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+<% end %>

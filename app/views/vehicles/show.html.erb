@@ -1,0 +1,43 @@
+<div class="container marg2">
+
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rut dueño:</strong>
+  <%= @vehicle.run_own %>
+</p>
+
+<p>
+  <strong>Patente vehículo:</strong>
+  <%= @vehicle.pat_veh %>
+</p>
+
+<p>
+  <strong>Marca vehículo:</strong>
+  <%= @vehicle.mar_veh %>
+</p>
+
+<p>
+  <strong>Modelo vehículo:</strong>
+  <%= @vehicle.model_veh %>
+</p>
+
+<p>
+  <strong>Tipo vehículo:</strong>
+  <%= @vehicle.tipo_veh %>
+</p>
+
+<p>
+  <strong>Km semanal vehículo:</strong>
+  <%= @vehicle.km_sem_veh %>
+</p>
+
+<%= button_to 'Editar', edit_vehicle_path(@vehicle), :method => 'get', :class => 'btn btn-info' %> |
+<%= button_to 'Volver', vehicles_path, :method => 'get', :class => 'btn btn-default' %>
+
+</div></div></div>

@@ -1,0 +1,2 @@
+module BasePricesHelper
+end

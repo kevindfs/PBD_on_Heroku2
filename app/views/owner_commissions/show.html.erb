@@ -1,0 +1,23 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Porcentaje comisión propietario vehículo:</strong>
+	  <%= @owner_commission.porcent_comi_prop %>
+	</p>
+
+	<p>
+	  <strong>Fecha inicio comisión propietario:</strong>
+	  <%= @owner_commission.ini_comi_prop %>
+	</p>
+
+	<p>
+	  <strong>Fecha finalización comisión propietario:</strong>
+	  <%= @owner_commission.fin_comi_prop %>
+	</p>
+
+	<%= button_to 'Editar', edit_owner_commission_path(@owner_commission) , :method => 'get', :class => 'btn btn-warning'%> |
+	<%= button_to 'Volver', owner_commissions_path  , :method => 'get', :class => 'btn btn-default'%>
+
+<% end %>

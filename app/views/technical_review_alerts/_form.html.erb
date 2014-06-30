@@ -1,0 +1,25 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+  <%= form_for(@technical_review_alert) do |f| %>
+    <% if @technical_review_alert.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@technical_review_alert.errors.count, "error") %> prohibited this technical_review_alert from being saved:</h2>
+
+        <ul>
+        <% @technical_review_alert.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :Plantilla_alertas_revisión_técnica %><br>
+      <%= f.text_area :plant_alert_rev_tec %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+<% end %>

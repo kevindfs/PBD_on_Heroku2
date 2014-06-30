@@ -1,0 +1,104 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+<div class="container marg2">
+		<br>
+		<br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+				<div class="row cn1">
+					<div class="col-lg-6 ">
+				    <div class="bs-example">
+					    <div class="panel panel-info">
+					      <!-- Default panel contents -->
+					      <div class="panel-heading">Modificar costos y Otros</div>
+
+					      <div class="panel-body">
+
+						<hr>
+							<%= link_to image_tag("http://1.bp.blogspot.com/_COiSBqI9PLE/Sg8xxy1U72I/AAAAAAAAAX8/PV_9VhRQygw/s400/WEB+Icono+Pagina+Web+en+Construccion.jpg", :height=> 250, :class=>'img-circle img-borde'), :controller => 'admin', :action => 'costos_otros'%>
+
+
+				
+						<br><br><br><br>
+				
+											
+							<b>En esta sección es posible ver, agregar o modificar los siguientes módulos de ActiveCab:</b><br>
+					      </div>
+
+					      <!-- List group -->
+					      <ul class="list-group">
+					        <li class="list-group-item">Valor Kilometro: Es posible modificar el valor del kilómetro para el calculo de cada viaje a realizar</li>
+					        <li class="list-group-item">Valor base o Bajada de bandera: Representa el costo fijo asociado a cada viaje</li>
+					        <li class="list-group-item">Comisión de dueños de vehículos: Porcentaje que recibirán los dueños de los vehículos de acuerdo al uso que esto presenten</li>
+					        <li class="list-group-item">Mensaje del sistema para la revisión técnica: Es posible modificar el mensaje que se enviará por la revisión técnica</li>
+					        <li class="list-group-item">Comunas en las cuales los taxis trabajan: Comunas en las cuales se realizan los viajes, representa el dominio de ActiveCab</li>
+					        <li class="list-group-item">Viajes con tarifas fijas: Viajes frecuentes de costo fijo, se puede apreciar en la vista de servicios y tarifas, del menú principal de la página</li>
+					      </ul>
+					    </div>
+					  </div>
+											
+
+
+					</div>
+					<div class="col-lg-6 ">
+					    <div class="bs-example">
+					    <div class="panel panel-success">
+					      <!-- Default panel contents -->
+					      <div class="panel-heading">Modificar Usuarios del Sistema</div>
+					      <div class="panel-body">
+
+						
+						<hr>
+							<%= link_to image_tag("http://imagenes.es.sftcdn.net/blog/es/2010/07/user-account-control-icon.jpg", :height=> 250, :class=>'img-circle img-borde'), :controller => 'admin', :action => 'usuarios'%>
+
+								<br><br><br><br>
+				
+							<b>En esta sección es posible ver, agregar o modificar los siguientes módulos de ActiveCab:</b><br>
+					      </div>
+
+					      <!-- List group -->
+					      <ul class="list-group">
+					        <li class="list-group-item">Conductores: Modificar los datos de los conductores</li>
+					        <li class="list-group-item">Oferta de vehículos: Se pueden asignar los bloques horarios a los conductores </li>
+					        <li class="list-group-item">Empresas: Se puede agregar una empresa afiliada con ActiveCab</li>
+					        <li class="list-group-item">Roles: Es posible modificar el tipo de usuario del sistema, es decir, asignar distintos privilegios</li>
+					        
+					        <li class="list-group-item">Vehículos: Es posible crear o modificar vehículos asociados a su dueño</li>
+					      </ul>
+					    </div>
+					  </div>
+					</div>
+			</div>
+			<div class="alert alert-danger centro1">CUIDADO, modificar elementos podría afectar el buen funcionamiento del Sistema ActiveCab</div>
+
+		</div>
+	</div>
+</div>
+<% else %>
+<div class="container marg2">
+<br>
+<hr>
+<br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+				<div class="centro1">	
+					<%= link_to image_tag("http://www.elolaconsultores.com/images/siluetaHombre2.png"), :controller => 'admin', :action => 'usuarios'%>
+
+					<br><br>
+
+					<h4>No se encuentra capacitado para acceder a esta sección de AciveCab, verifique su rol y permisos que conlleva.</h4>
+
+
+					<p><%=button_to 'Iniciar sesión', {:controller=> 'users', :action=> 'sign_in'}, :class=>'btn btn-success' %>
+
+						</p>
+
+				</div>				
+			</div>
+		</div>
+	</div>
+
+
+<% end %>
+

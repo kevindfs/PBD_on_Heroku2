@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mensaje alerta licencia conducir:</strong>
+  <%= @drivers_license_alert.plant_alert_licenc %>
+</p>
+
+<%= button_to 'Editar', edit_drivers_license_alert_path(@drivers_license_alert), :method => 'get', :class => 'btn btn-warning' %> |
+<%= button_to 'Volver', drivers_license_alerts_path, :method => 'get', :class => 'btn btn-default' %>

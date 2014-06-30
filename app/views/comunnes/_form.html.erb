@@ -1,0 +1,28 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+  <%= form_for(@comunne) do |f| %>
+    <% if @comunne.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@comunne.errors.count, "error") %> prohibited this comunne from being saved:</h2>
+
+        <ul>
+        <% @comunne.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :Nombre_comuna %><br>
+      <%= f.text_field :nom_comun %>
+    </div>
+    <div class="field">
+      <%= f.label :Número_comuna %><br>
+      <%= f.number_field :num_comun %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,2 @@
+module LogSqlsHelper
+end

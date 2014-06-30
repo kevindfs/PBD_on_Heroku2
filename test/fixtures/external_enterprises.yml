@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rut_ent: MyString
+  giro_emp: MyString
+  nom_emp: MyString
+  dir_emp: MyString
+  tel1_emp: MyString
+  tel2_emp: MyString
+  email_emp: MyString
+  est_conv_emp: MyString
+  ini_conv_emp: 2014-06-23
+  fin_conv_emp: 2014-06-23
+  descrip_conv_emp: MyText
+
+two:
+  rut_ent: MyString
+  giro_emp: MyString
+  nom_emp: MyString
+  dir_emp: MyString
+  tel1_emp: MyString
+  tel2_emp: MyString
+  email_emp: MyString
+  est_conv_emp: MyString
+  ini_conv_emp: 2014-06-23
+  fin_conv_emp: 2014-06-23
+  descrip_conv_emp: MyText

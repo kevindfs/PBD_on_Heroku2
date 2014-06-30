@@ -1,0 +1,18 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Nombre comuna:</strong>
+	  <%= @comunne.nom_comun %>
+	</p>
+
+	<p>
+	  <strong>Número comuna:</strong>
+	  <%= @comunne.num_comun %>
+	</p>
+
+	<%= button_to 'Editar', edit_comunne_path(@comunne), :method => 'get', :class => 'btn btn-warning' %> |
+	<%= button_to 'Volver', comunnes_path, :method => 'get', :class => 'btn btn-default' %>
+
+<% end %>

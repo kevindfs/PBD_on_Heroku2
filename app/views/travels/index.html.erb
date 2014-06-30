@@ -1,0 +1,55 @@
+
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<h1>Lista de viajes</h1>
+
+<div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de viajes</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible modificar los viajes.<br>
+        
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+  <thead>
+    <tr>
+      <th>Rut conductor</th>
+      <th>Id solicitud</th>
+      <th>Hora inicio</th>
+      <th>Tiempo estimado</th>
+      <th>Distancia estimada</th>
+      <th>Validez</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @travels.each do |travel| %>
+      <tr>
+        <td><%= travel.run_driv %></td>
+        <td><%= travel.id_trav_req %></td>
+        <td><%= travel.hora_ini_via %></td>
+        <td><%= travel.tiemp_est_via %></td>
+        <td><%= travel.dist_est_via %></td>
+        <td><%= travel.val_via %></td>
+        <td><%= button_to 'Ver', travel , :method => 'get', :class => 'btn btn-info'%></td>
+        <td><%= button_to 'Editar', edit_travel_path(travel) , :method => 'get', :class => 'btn btn-warning' %></td>
+        <td><%= button_to 'Eliminar', travel, method: :delete, data: { confirm: '¿Confirma eliminación?'} , :class => 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'Nuevo', new_travel_path , :method => 'get', :class => 'btn btn-default' %>
+</div></div></div></div>

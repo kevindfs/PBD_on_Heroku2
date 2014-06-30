@@ -1,0 +1,38 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<h1>Listado de ofertas de vehículos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id bloque</th>
+      <th>Rut conductor</th>
+      <th>Estado oferta vehículo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offer_vehicles.each do |offer_vehicle| %>
+      <tr>
+        <td><%= offer_vehicle.id_block %></td>
+        <td><%= offer_vehicle.run_driv %></td>
+        <td><%= offer_vehicle.est_oferta_veh %></td>
+        <td><%= link_to 'Show', offer_vehicle %></td>
+        <td><%= link_to 'Edit', edit_offer_vehicle_path(offer_vehicle) %></td>
+        <td><%= link_to 'Destroy', offer_vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'Nueva oferta de vehículo', new_offer_vehicle_path, :metho=>'get', :class=>'btn btn-default' %>
+</div></div></div>

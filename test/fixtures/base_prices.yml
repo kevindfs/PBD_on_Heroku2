@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  val_base: 1
+  ini_val_base: 2014-06-23
+  fin_val_base: 2014-06-23
+  estado_val_base: MyString
+
+two:
+  val_base: 1
+  ini_val_base: 2014-06-23
+  fin_val_base: 2014-06-23
+  estado_val_base: MyString

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rut_ent: MyString
+  fecha_fact: 2014-06-23
+  total_fact: 1
+
+two:
+  rut_ent: MyString
+  fecha_fact: 2014-06-23
+  total_fact: 1

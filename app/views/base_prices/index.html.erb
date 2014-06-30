@@ -1,0 +1,63 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+
+
+<h1>Listado de precios base</h1>
+<br><br><br>
+
+<div class="panel panel-success">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de precios bases</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible modificar el valor del costo fijo de ActiveCab.<br>
+        La modificación de esta sección afectará directamente al costo asociado a cada uno de los viajes".
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Valor base</th>
+            <th>Fecha inicio </th>
+            <th>Fecha término</th>
+            <th>Estado</th>
+            <th>Ver</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>  <tbody>
+    <% @cont = 0%>    
+    <% @base_prices.each do |base_price| %>
+      <tr>
+        <td><%= @cont %></td>
+        <td><%= base_price.val_base %></td>
+        <td><%= base_price.ini_val_base %></td>
+        <td><%= base_price.fin_val_base %></td>
+        <td><%= base_price.estado_val_base %></td>
+        <td><%= button_to 'Ver', base_price, :method=>'get', :class=>'btn btn-info' %></td>
+        <td><%= button_to 'Editar', edit_base_price_path(base_price), :method=>'get', :class=>'btn btn-warning' %></td>
+        <td><%= button_to 'Eliminar', base_price, method: :delete, data: { confirm: '¿Confirma eliminación?' }, :method=>'get', :class=>'btn btn-danger' %></td>
+
+      </tr>
+      <%@cont = @cont +1 %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'Nuevo', new_base_price_path, :method => 'get', :class => 'btn btn-default' %>
+
+<% end %>
+
+</div>
+
+
+</div></div></div>

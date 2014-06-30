@@ -1,0 +1,35 @@
+<h1>Listar Propietarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Run propietario</th>
+      <th>Nombre propietario</th>
+      <th>Apellidos propietario</th>
+      <th>Teléfono propietario</th>
+      <th>Email propietario</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @owners.each do |owner| %>
+      <tr>
+        <td><%= owner.run_own %></td>
+        <td><%= owner.nom_prop %></td>
+        <td><%= owner.apells_prop %></td>
+        <td><%= owner.tel_prop %></td>
+        <td><%= owner.email_prop %></td>
+        <td><%= button_to 'Show', owner, :method => 'get', :class => 'btn btn-info' %></td>
+        <td><%= button_to 'Editar', edit_owner_path(owner) , :method => 'get', :class => 'btn btn-warning' %></td>
+        <td><%= button_to 'Eliminar', owner, method: :delete, data: { confirm: '¿Confirma eliminación?' } , :class => 'btn btn-danger'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'Nuevo', new_owner_path, :method => 'get', :class => 'btn btn-default' %>

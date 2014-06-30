@@ -1,0 +1,73 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<h1>Listado de empresas externas</h1>
+
+  <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de empresas externas</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible ver, agregar o modificar las empresas externas que presentan convenio con ActiveCab.<br>
+        
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+  <thead>
+    <tr>
+      <th>Rut empresa</th>
+      <th>Giro empresa</th>
+      <th>Nombre empresa</th>
+      <th>Dirección empresa</th>
+      <th>Teléfono 1</th>
+      <th>Teléfono 2</th>
+      <th>Email</th>
+      <th>Estado convenio</th>
+      <th>Fecha inicio convenio</th>
+      <th>Fecha fin convenio</th>
+      <th>Descripción convenio</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @external_enterprises.each do |external_enterprise| %>
+      <tr>
+        <td><%= external_enterprise.rut_ent %></td>
+        <td><%= external_enterprise.giro_emp %></td>
+        <td><%= external_enterprise.nom_emp %></td>
+        <td><%= external_enterprise.dir_emp %></td>
+        <td><%= external_enterprise.tel1_emp %></td>
+        <td><%= external_enterprise.tel2_emp %></td>
+        <td><%= external_enterprise.email_emp %></td>
+        <td><%= external_enterprise.est_conv_emp %></td>
+        <td><%= external_enterprise.ini_conv_emp %></td>
+        <td><%= external_enterprise.fin_conv_emp %></td>
+        <td><%= external_enterprise.descrip_conv_emp %></td>
+        <td><%= button_to 'Ver', external_enterprise , :method => 'get', :class => 'btn btn-info'%></td>
+        <td><%= button_to 'Editar', edit_external_enterprise_path(external_enterprise), :method => 'get', :class => 'btn btn-warning'%></td>
+        <td><%= button_to 'Eliminar', external_enterprise, method: :delete, data: { confirm: '¿Confirma eliminación?' } , :class => 'btn btn-danger'%></td>
+      </tr>
+
+
+
+
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<br>
+ <%= button_to 'Nuevo', new_external_enterprise_path, :method => 'get', :class => 'btn btn-default' %>
+
+
+</div></div></div></div>
+
+

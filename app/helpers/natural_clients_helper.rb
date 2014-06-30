@@ -1,0 +1,2 @@
+module NaturalClientsHelper
+end

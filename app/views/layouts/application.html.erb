@@ -1,0 +1,403 @@
+#encoding: utf-8
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ActiveCab</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <link href="../../assets/bootstrap.css" rel="stylesheet" type="text/css" />
+  <link href="../../assets/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+  <link href="../../assets/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+   <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAuPsJpk3MBtDpJ4G8cqBnjRRaGTYH6UMl8mADNa0YKuWNNa8VNxQCzVBXTx2DYyXGsTOxpWhvIG7Djw" type="text/javascript"></script>
+    <style type="text/css">
+    body {
+      font-family: Verdana, Arial, sans serif;
+      font-size: 11px;
+      margin: 2px;
+    }
+    table.directions th {
+      background-color:#EEEEEE;
+    }
+
+    img {
+      color: #000000;
+    }
+    </style>
+    <script type="text/javascript">
+
+    var map;
+    var gdir;
+    var geocoder = null;
+    var addressMarker;
+    
+    function initialize() {
+      if (GBrowserIsCompatible()) {      
+        map = new GMap2(document.getElementById("map_canvas"));
+        gdir = new GDirections(map, document.getElementById("directions"));
+        GEvent.addListener(gdir, "load", onGDirectionsLoad);
+        GEvent.addListener(gdir, "error", handleErrors);
+    
+        setDirections("San Francisco", "Mountain View", "en_US");
+      }
+    }
+    
+    function setDirections(fromAddress, toAddress, locale) {
+      gdir.load("from: " + fromAddress + " to: " + toAddress,
+                { "locale": locale });
+    }
+    
+    function handleErrors(){
+     if (gdir.getStatus().code == G_GEO_UNKNOWN_ADDRESS)
+       alert("No se logro encontrar la ruta indicada, el motivo puede ser un mal ingreso de datos, o que la direccion sea muy actual y no exista en los registros.\nError de codigo: " + gdir.getStatus().code);
+     else if (gdir.getStatus().code == G_GEO_SERVER_ERROR)
+       alert("La direccion no se pudo procesar con exito, sin embargo la razón de falla no se sabe.\n Error de ingreso: " + gdir.getStatus().code);
+     
+     else if (gdir.getStatus().code == G_GEO_MISSING_QUERY)
+       alert("Se ha especificado una direccion vacia o nula como entrada, esto quiere decir que ninguna ruta se especifica.\n Error de ingreso: " + gdir.getStatus().code);
+    
+    //   else if (gdir.getStatus().code == G_UNAVAILABLE_ADDRESS)  <--- Doc bug... this is either not defined, or Doc is wrong
+    //     alert("The geocode for the given address or the route for the given directions query cannot be returned due to legal or contractual reasons.\n Error code: " + gdir.getStatus().code);
+       
+     else if (gdir.getStatus().code == G_GEO_BAD_KEY)
+       alert("La clave proporcionada no es válido o no coincide con el dominio para el que se le dio. \n Error de codigo: " + gdir.getStatus().code);
+    
+     else if (gdir.getStatus().code == G_GEO_BAD_REQUEST)
+       alert("La solicitud de ruta no se pudo realizar con exito.\n Error de codigo: " + gdir.getStatus().code);
+      
+     else alert("Se ha producido un error desconocido.");
+    }
+    
+    function onGDirectionsLoad(){ 
+        // Use this function to access information about the latest load()
+        // results.
+    
+        // e.g.
+        // document.getElementById("getStatus").innerHTML = gdir.getStatus().code;
+      // and yada yada yada...
+    }
+
+    </script>
+
+
+  
+ 	<!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+</head>
+
+<% if user_signed_in? and current_user.tipo == 'cli_nat'%>
+
+
+
+<div class="navbar navbar-inverse navbar-fixed-top bl1" role="navigation">
+  <div class="container">
+    
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+
+      <a class="navbar-brand" href="#"> <i class="fa fa-cab"></i> ActiveCab</a>
+    </div>
+    <div class="collapse navbar-collapse">
+
+      <ul class="nav navbar-nav">
+        <!--<li><a href="#"><i class="fa fa-home"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa fa-usd"></i> Servicios y tarifas</a></li> -->
+        <li> <%= link_to "Inicio", :controller => :home, :action => :index %></li>
+        <li> <%= link_to "Servicios y tarifas", :controller => :welcome, :action => :tarifas %></li>
+        <li> <%= link_to "Quiénes somos",:controller => :welcome, :action => :qs  %></li>
+        <li> <%= link_to "Solicita un viaje", :controller => :travel_requests, :action => :new %></li>
+        <!--<li><a href="welcome/qs"><i class="fa fa-university"></i> Quiénes somos</a></li>-->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to  current_user.nombre, edit_user_registration_path %></li>
+        <li> <%=link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %> </li>
+
+        
+      </ul>
+
+      <div class="navbar-collapse collapse">
+        
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!--Fin cabecera conectado-->
+
+<!--############################################-->
+
+<!--Inicio cabecera conectado como administrador-->
+
+
+<% elsif user_signed_in? and current_user.tipo == 'administrador'%>
+
+
+
+<div class="navbar navbar-inverse navbar-fixed-top bl1" role="navigation">
+  <div class="container">
+    
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+
+      <a class="navbar-brand" href="#"> <i class="fa fa-cab"></i> ActiveCab</a>
+    </div>
+    <div class="collapse navbar-collapse">
+
+      <ul class="nav navbar-nav">
+        <!--<li><a href="#"><i class="fa fa-home"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa fa-usd"></i> Servicios y tarifas</a></li> -->
+        <li> <%= link_to "Inicio", :controller => :home, :action => :index %></li>
+        <li> <%= link_to "Servicios y tarifas", :controller => :welcome, :action => :tarifas %></li>
+        <li> <%= link_to "Quiénes somos", :controller => :welcome, :action => :qs %></li>
+        <li> <%= link_to "Administrar", :controller => :admin%></li>
+        <!--<li><a href="welcome/qs"><i class="fa fa-university"></i> Quiénes somos</a></li>-->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to  current_user.nombre, edit_user_registration_path %></li>
+        <li> <%=link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %> </li>
+
+        
+      </ul>
+
+      <div class="navbar-collapse collapse">
+        
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!--Fin cabecera conectado como administrador-->
+
+<!--############################################-->
+
+<!--Inicio cabecera conectado como conductor-->
+
+<% elsif user_signed_in? and current_user.tipo == 'conductor'%>
+
+
+
+<div class="navbar navbar-inverse navbar-fixed-top bl1" role="navigation">
+  <div class="container">
+    
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+
+      <a class="navbar-brand" href="#"> <i class="fa fa-cab"></i> ActiveCab</a>
+    </div>
+    <div class="collapse navbar-collapse">
+
+      <ul class="nav navbar-nav">
+        <!--<li><a href="#"><i class="fa fa-home"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa fa-usd"></i> Servicios y tarifas</a></li> -->
+        <li> <%= link_to "Inicio", :controller => :home, :action => :index %></li>
+        <li> <%= link_to "Servicios y tarifas", :controller => :welcome, :action => :tarifas %></li>
+        <li> <%= link_to "Quiénes somos", :controller => :welcome, :action => :qs %></li>
+        <li> <%= link_to "Ver Viajes", :controller => :conductor%></li>
+        <!--<li><a href="welcome/qs"><i class="fa fa-university"></i> Quiénes somos</a></li>-->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to  current_user.nombre, edit_user_registration_path %></li>
+        <li> <%=link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %> </li>
+
+        
+      </ul>
+
+      <div class="navbar-collapse collapse">
+        
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!--Fin cabecera conectado como conductor-->
+
+<!--############################################-->
+
+<!--Inicio cabecera conectado como operador-->
+
+<% elsif user_signed_in? and current_user.tipo == 'conductor'%>
+
+
+
+<div class="navbar navbar-inverse navbar-fixed-top bl1" role="navigation">
+  <div class="container">
+    
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+
+      <a class="navbar-brand" href="#"> <i class="fa fa-cab"></i> ActiveCab</a>
+    </div>
+    <div class="collapse navbar-collapse">
+
+      <ul class="nav navbar-nav">
+        <!--<li><a href="#"><i class="fa fa-home"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa fa-usd"></i> Servicios y tarifas</a></li> -->
+        <li> <%= link_to "Inicio", :controller => :home, :action => :index %></li>
+        <li> <%= link_to "Servicios y tarifas", :controller => :welcome, :action => :tarifas %></li>
+        <li> <%= link_to "Quiénes somos", :controller => :welcome, :action => :qs %></li>
+        <li> <%= link_to "Operador", :controller => :operador%></li>
+        <!--<li><a href="welcome/qs"><i class="fa fa-university"></i> Quiénes somos</a></li>-->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to  current_user.nombre, edit_user_registration_path %></li>
+        <li> <%=link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %> </li>
+
+        
+      </ul>
+
+      <div class="navbar-collapse collapse">
+        
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!--Fin cabecera conectado como operador-->
+<% else%>
+
+<!--Cabecera noconectado-->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+  
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+
+      <a class="navbar-brand" href="#"> <i class="fa fa-cab"></i> ActiveCab</a>
+    </div>
+    <div class="collapse navbar-collapse">
+
+      <ul class="nav navbar-nav">
+        <!--<li><a href="#"><i class="fa fa-home"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa fa-usd"></i> Servicios y tarifas</a></li> -->
+        <li> <%= link_to "Inicio", :controller => :home, :action => :index %></li>
+        <li> <%= link_to "Servicios y tarifas", :controller => :welcome, :action => :tarifas %></li>
+        <li> <%= link_to "Quiénes somos", :controller => :welcome, :action => :qs %></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li> <%=link_to 'Inicia Sesión', new_user_session_path %> </li>
+        <li> <%=link_to 'Crear Cuenta', new_user_registration_path %> </li>
+
+        
+      </ul>
+
+      <div class="navbar-collapse collapse">
+        
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!--Fin de cabecera no conectado-->
+<% end %>
+
+<!--Fin Cabecera -->
+<div class="padre marg1">
+
+<body onload="initialize()" onunload="GUnload()" style="font-family: Arial;border: 0 none;">
+<br><br>
+  <!--<p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+-->
+<!-- Inicio de yield -->
+
+
+
+<%= yield %>
+  
+     
+<!--Fin de yield -->
+
+</body>
+</div>
+
+<footer id="footer" class="footer hidden-print">
+<br>
+
+  <div class="container text-center">
+    <div>
+      <i class="fa fa-mobile"></i> Contáctanos <a href="#">ActiveCab</a><br>      
+      <i class="fa fa-cog"></i> Creado por <a href="#"> APK Solution</a>
+    </div>
+    <div>      
+      <i class="fa fa-university"></i> Empresa <a href="#">Quiénes Somos</a>
+      <span class="hide-xs hide-sm">·</span><br class="hide-md hide-lg">
+      <i class="fa fa-usd"></i> Cotizar precio <a href="#">Planifica tu viaje</a>
+    </div>
+	<div class="fijo1">
+		<br><i class="fa fa-car fa-2x"></i>
+	</div><br>
+    <div class="amari fijo1">    		
+		  © Copyright 2014 by ActiveCab. All Rights Reserved. 		
+	</div>
+  </div>
+  <!-- Subir facil -->
+<div id='IrArriba'>
+<a href=''></a>
+</div>
+<!---->
+  
+</footer>
+  <script src="../../assets/bootstrap.min.js" rel="stylesheet"></script>
+  <script src="../../assets/bootstrap.js" rel="stylesheet"></script>
+  <script src="../../assets/bootstrap.js" type="text/javascript" ></script>
+
+
+</html>
+

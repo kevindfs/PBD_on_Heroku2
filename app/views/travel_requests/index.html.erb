@@ -1,0 +1,52 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<h1>Listar Solicitud de Viaje</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rut cliente</th>
+      <th>Dirección origen</th>
+      <th>Dirección destino</th>
+      <th>Comuna origen</th>
+      <th>Comuna destino </th>
+      <th>Cantidad pasajeros</th>
+      <th>Fecha creación solicitud</th>
+      <th>Fecha que necesita servicio</th>
+      <th>Estados solicitud</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @travel_requests.each do |travel_request| %>
+      <tr>
+        <td><%= travel_request.run_cli %></td>
+        <td><%= travel_request.dir_orig_sol %></td>
+        <td><%= travel_request.dir_dest_sol %></td>
+        <td><%= travel_request.com_orig_sol %></td>
+        <td><%= travel_request.com_dest_sol %></td>
+        <td><%= travel_request.cant_pasaj_sol %></td>
+        <td><%= travel_request.fecha_crea_sol %></td>
+        <td><%= travel_request.fecha_serv_sol %></td>
+        <td><%= travel_request.est_sol %></td>
+        <td><%= button_to 'Ver', travel_request, :method => 'get', :class => 'btn btn-info' %></td>
+        <td><%= button_to 'Editar', edit_travel_request_path(travel_request) , :method => 'get', :class => 'btn btn-warning'%></td>
+        <td><%= button_to 'Eliminar', travel_request, method: :delete, data: { confirm: '¿Confirma eliminación?' }  , :class => 'btn btn-danger'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'Nuevo', new_travel_request_path  , :method => 'get', :class => 'btn btn-default'%>
+</div></div></div>
+<% end %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Inicio bloque:</strong>
+  <%= @scheduling_block.ini_bloq %>
+</p>
+
+<p>
+  <strong>Fin bloque:</strong>
+  <%= @scheduling_block.fin_bloq %>
+</p>
+
+<%= button_to 'Editar', edit_scheduling_block_path(@scheduling_block) , :method => 'get', :class => 'btn btn-warning'%> |
+<%= button_to 'Volver', scheduling_blocks_path , :method => 'get', :class => 'btn btn-default'%>

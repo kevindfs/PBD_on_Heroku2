@@ -1,0 +1,55 @@
+
+  <h1>Listing drivers</h1>
+
+<br><br><br>
+<div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de conductores</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible ver, agregar o modificar conductores o choferes de taxis trabajando en ActiveCab.<br>
+        
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+
+    <thead>
+      <tr>
+        <th>Rut</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Teléfono 1/th>
+        <th>Teléfono 2 </th>
+        <th>Email </th>
+        <th>Vencimiento licencencia </th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @drivers.each do |driver| %>
+        <tr>
+          <td><%= driver.run_driv %></td>
+          <td><%= driver.nom_cond %></td>
+          <td><%= driver.apells_cond %></td>
+          <td><%= driver.tel1_cond %></td>
+          <td><%= driver.tel2_cond %></td>
+          <td><%= driver.email_cond %></td>
+          <td><%= driver.venc_licenc_cond %></td>
+          <td><%= button_to 'Ver', driver, :method=>'get', :class=>'btn btn-info' %></td>
+          <td><%= button_to 'Editar', edit_driver_path(driver) , :method => 'get', :class => 'btn btn-warning'%></td>
+          <td><%= button_to 'Eliminar', driver, method: :delete, data: { confirm: '¿Confirma eliminación?' } , :class => 'btn btn-danger'%></td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= button_to 'Nuevo', new_driver_path, :method => 'get', :class => 'btn btn-default'%>
+
+

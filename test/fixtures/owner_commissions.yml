@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  porcent_comi_prop: 1.5
+  ini_comi_prop: 2014-06-23
+  fin_comi_prop: 2014-06-23
+
+two:
+  porcent_comi_prop: 1.5
+  ini_comi_prop: 2014-06-23
+  fin_comi_prop: 2014-06-23

@@ -1,0 +1,36 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+  <%= form_for(@base_price) do |f| %>
+    <% if @base_price.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@base_price.errors.count, "error") %> prohibited this base_price from being saved:</h2>
+
+        <ul>
+        <% @base_price.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :Valor_base %><br>
+      <%= f.number_field :val_base %>
+    </div>
+    <div class="field">
+      <%= f.label :Fecha_inicio_valor_base %><br>
+      <%= f.date_select :ini_val_base %>
+    </div>
+    <div class="field">
+      <%= f.label :Fecha_término_valor_base %><br>
+      <%= f.date_select :fin_val_base %>
+    </div>
+    <div class="field">
+      <%= f.label :estado_valor_base %><br>
+      <%= f.text_field :estado_val_base %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+<% end %>

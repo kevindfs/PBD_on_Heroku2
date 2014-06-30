@@ -1,0 +1,33 @@
+<h1>Listing assigneds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id veh</th>
+      <th>Run driv</th>
+      <th>Ini assigned</th>
+      <th>Fin assigned</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assigneds.each do |assigned| %>
+      <tr>
+        <td><%= assigned.id_veh %></td>
+        <td><%= assigned.run_driv %></td>
+        <td><%= assigned.ini_assigned %></td>
+        <td><%= assigned.fin_assigned %></td>
+        <td><%= link_to 'Ver', assigned %></td>
+        <td><%= link_to 'Editar', edit_assigned_path(assigned) %></td>
+        <td><%= link_to 'Eliminar', assigned, method: :delete, data: { confirm: 'Confirma eliminación?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo', new_assigned_path %>

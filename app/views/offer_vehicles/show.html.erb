@@ -1,0 +1,26 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id bloque:</strong>
+  <%= @offer_vehicle.id_block %>
+</p>
+
+<p>
+  <strong>Rut conductor:</strong>
+  <%= @offer_vehicle.run_driv %>
+</p>
+
+<p>
+  <strong>Estado oferta de vehículo:</strong>
+  <%= @offer_vehicle.est_oferta_veh %>
+</p>
+
+<%= link_to 'Editar', edit_offer_vehicle_path(@offer_vehicle) %> |
+<%= link_to 'Atras', offer_vehicles_path %>
+</div></div></div>

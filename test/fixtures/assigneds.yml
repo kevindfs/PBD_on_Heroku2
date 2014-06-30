@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_veh: 1
+  run_driv: MyString
+  ini_assigned: 2014-06-23
+  fin_assigned: 2014-06-23
+
+two:
+  id_veh: 1
+  run_driv: MyString
+  ini_assigned: 2014-06-23
+  fin_assigned: 2014-06-23

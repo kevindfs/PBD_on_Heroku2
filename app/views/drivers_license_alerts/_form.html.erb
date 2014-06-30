@@ -1,0 +1,21 @@
+<%= form_for(@drivers_license_alert) do |f| %>
+  <% if @drivers_license_alert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@drivers_license_alert.errors.count, "error") %> prohibited this drivers_license_alert from being saved:</h2>
+
+      <ul>
+      <% @drivers_license_alert.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Plantilla_alerta_licencia %><br>
+    <%= f.text_area :plant_alert_licenc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

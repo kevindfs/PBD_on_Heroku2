@@ -1,0 +1,29 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Valor base:</strong>
+  <%= @base_price.val_base %>
+</p>
+
+<p>
+  <strong>Fecha inicio valor base:</strong>
+  <%= @base_price.ini_val_base %>
+</p>
+
+<p>
+  <strong>Fecha término valor base:</strong>
+  <%= @base_price.fin_val_base %>
+</p>
+
+<p>
+  <strong>Estado valor base:</strong>
+  <%= @base_price.estado_val_base %>
+</p>
+
+<%= button_to 'Editar', edit_base_price_path(@base_price), :method=>'get', :class=>'btn btn-warning' %> 
+<%= button_to 'Volver', base_prices_path, :method=>'get', :class=>'btn btn-default' %>
+
+
+<% end %>

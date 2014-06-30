@@ -1,0 +1,13 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Plantilla Alerta Revisión Técnica:</strong>
+	  <%= @technical_review_alert.plant_alert_rev_tec %>
+	</p>
+
+	<%= button_to 'Editar', edit_technical_review_alert_path(@technical_review_alert) , :method => 'get', :class => 'btn btn-warning'%> |
+	<%= button_to 'Volver', technical_review_alerts_path , :method => 'get', :class => 'btn btn-default' %>
+
+<% end %>

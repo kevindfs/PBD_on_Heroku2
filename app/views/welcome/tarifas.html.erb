@@ -1,0 +1,55 @@
+
+<div class="container marg2">
+<br>
+<h1>Listado de tarifas</h1>
+<hr>
+        <div class="row">
+            <div class="col-lg-8 ">
+
+			<div class="panel panel-default">
+			      <!-- Default panel contents -->
+			   	<div class="panel-heading">Tabla de precios ActiveCab</div>
+
+
+			      <!-- Table -->
+			      <table class="table">
+			        <thead>
+			          <tr>
+			            <th>#</th>
+			            <th>Origen</th>
+			            <th>Destino</th>
+			            <th>Costo</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			        <%@fixed_rates.each do |n| %>
+						<tr>
+				            <td><%=n.id_fix_rat%></td>
+				            <td><%=n.ori_tar%></td>
+				            <td><%=n.dest_tar%></td>
+				            <td><%=n.costo_tar%></td>
+			          	</tr>						
+					<%end%>
+			        </tbody>
+			      </table>
+			    </div>
+
+            </div>
+            <div class="col-lg-4 ">
+				<div class="centro">
+					<div class="fijo1">
+						<i class="fa fa-taxi fa-5x amari"></i>
+					</div><br><br>
+					<div class="fijo1">
+					    <%= button_to "Solicita un taxi", :controller => :travel_requests, :action => :new %>
+					    </div>
+					</div>
+				</div>
+
+
+            </div>
+
+        </div>      
+
+
+    </div>

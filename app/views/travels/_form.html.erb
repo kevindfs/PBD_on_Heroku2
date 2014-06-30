@@ -1,0 +1,46 @@
+<%= form_for(@travel) do |f| %>
+  <% if @travel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@travel.errors.count, "error") %> prohibited this travel from being saved:</h2>
+
+      <ul>
+      <% @travel.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">  
+
+    <%= f.label :rut_conductor %><br>
+    <!--<%= f.text_field :run_driv %> -->
+   <p><%= f.select :run_driv, options_for_select(@drivers.collect{ |dr| ["Nombre: "+dr.nom_cond+", Rut: "+dr.run_driv ,dr.run_driv] })%></p>
+
+
+  </div>
+  <div class="field">
+    <%= f.label :id_solicitud_de_viaje %><br>
+    <!--<%= f.number_field :id_trav_req %>-->
+    <p><%= f.select :id_trav_req, options_for_select(@travel_requests.collect{ |tr| [tr.id_trav_req ,tr.id_trav_req] })%></p>
+  </div>
+  <div class="field">
+    <%= f.label :hora_inicio_viaje %><br>
+    <%= f.time_select :hora_ini_via %>
+  </div>
+  <div class="field">
+    <%= f.label :tiempo_estimado_viaje %><br>
+    <%= f.number_field :tiemp_est_via %>
+  </div>
+  <div class="field">
+    <%= f.label :dist_est_via %><br>
+    <%= f.text_field :dist_est_via %>
+  </div>
+  <div class="field">
+    <%= f.label :valor_de_viaje %><br>
+    <%= f.number_field :val_via%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

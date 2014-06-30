@@ -1,0 +1,141 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+<div class="container marg2">
+    
+    <h1>Asignar Roles</h1>
+<br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+              <div class="row">
+                <div class="col-lg-6">
+<!---->
+          <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Asignar nuevo rol</h3>
+              </div>
+              <div class="panel-body">
+              
+
+                  <%= form_tag :action => 'index' do %>
+                    
+
+
+
+                    <p> Rut de cliente a cambiar su rol:&nbsp; &nbsp; &nbsp;
+                    <p><%= select_tag :rut, options_for_select(@users.collect{ |u| [u.rut, u.rut] })%></p>
+                    <p> Correo de cliente a cambiar su rol:&nbsp;
+                    <p><%= select_tag :correo, options_for_select(@users.collect{ |u| [u.email, u.email] })%></p>
+                    <p> Seleccione el nuevo rol del cliente:
+                    <%= select_tag :role, options_for_select([['cliente natural', 'cli_nat'],['operador', 'operador'],['conductor','conductor'], ['administrador', 'administrador']]) %><br><br>
+
+                    <div class="center">  <%= submit_tag 'Enviar', :class=> 'btn btn-primary' %></div>
+
+                  <% end %>
+
+                  <% begin %>
+
+                    <% @users.each do |user| %>
+
+                      <% if user.rut == @rut and user.email == @correo%>
+                        
+                        <% user.tipo = @rol %>
+                        <%user.save%>
+
+                      <% end %>
+                                            
+                      
+
+
+                    <% end %> 
+
+                  <% rescue %>
+
+                    <p>No se pudo encontrar al usuario solicitado</p>
+
+                  <% end %>
+                  </div>
+              </div>
+
+<!--fin-->
+
+
+
+
+                </div>
+
+
+                <div class="col-lg-6 ">
+
+
+
+
+                </div>
+             </div>           
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <br><br><br>
+          <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Lista de clientes</div>
+                <div class="panel-body">
+                  <p class="center"> En esta sección es posible ver, agregar o modificar clientes registrados en ActiveCab.<br>
+                  
+                  </p>
+                </div>
+
+                <!-- Table -->
+                <table class="table">
+
+            <thead>
+              <tr>
+                <th>Rut </th>
+                <th>Email </th>
+                <th>Nombre </th>
+                <th>Apellidos </th> 
+                <th>Tipo </th>
+                <th>Teléfono 1 </th>
+                <th>Teléfono 2 </th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+
+             <% @users.each do |user| %>
+                <tr>
+                  <td><%=user.rut%></td>
+                  <td><%=user.email%></td>
+                  <td><%= user.nombre %></td>
+                  <td><%=user.apellidos%></td>
+                  <td><%= user.tipo %></td>
+                  <td><%=user.telefono1%></td>
+                  <td><%=user.telefono2%></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+        </div>  
+
+      </div>
+
+
+
+
+<!--asdasd-->
+
+
+
+
+	
+
+
+
+
+
+</div></div></div></div>
+<% end %>

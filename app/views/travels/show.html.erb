@@ -1,0 +1,43 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Run conductor:</strong>
+  <%= @travel.run_driv %>
+</p>
+
+<p>
+  <strong>Id solicitud viaje:</strong>
+  <%= @travel.id_trav_req %>
+</p>
+
+<p>
+  <strong>Hora inicio viaje:</strong>
+  <%= @travel.hora_ini_via %>
+</p>
+
+<p>
+  <strong>Tiempo estimado viaje:</strong>
+  <%= @travel.tiemp_est_via %>
+</p>
+
+<p>
+  <strong>Distancia estimada viaje:</strong>
+  <%= @travel.dist_est_via %>
+</p>
+
+<p>
+  <strong>Valor viaje:</strong>
+  <%= @travel.val_via %>
+</p>
+
+<%= button_to 'Editar', edit_travel_path(@travel) , :method => 'get', :class => 'btn btn-warning' %> |
+<%= button_to 'Volver', travels_path , :method => 'get', :class => 'btn btn-default' %>
+
+
+</div></div></div>

@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre estado:</strong>
+  <%= @state.nom_est %>
+</p>
+
+<%= button_to 'Editar', edit_state_path(@state), :method => 'get', :class => 'btn btn-warning' %> |
+<%= button_to 'Volver', states_path , :method => 'get', :class => 'btn btn-default'%>

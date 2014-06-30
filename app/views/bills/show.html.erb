@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rut empresa:</strong>
+  <%= @bill.rut_ent %>
+</p>
+
+<p>
+  <strong>Fecha factura:</strong>
+  <%= @bill.fecha_fact %>
+</p>
+
+<p>
+  <strong>Total factura:</strong>
+  <%= @bill.total_fact %>
+</p>
+
+<%= button_to 'Editar', edit_bill_path(@bill), :method=>'get', :class=>'btn btn-warning' %> 
+<%= button_to 'Volver', bills_path, :method=>'get', :class=>'btn btn-default' %>

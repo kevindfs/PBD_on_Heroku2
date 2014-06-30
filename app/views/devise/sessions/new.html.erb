@@ -1,0 +1,40 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+            <h2 class="center">Iniciar sesión</h2>
+            <br><br>  
+            <div class="col-lg-6">
+              <div class="panel panel-primary shd">
+                  <div class="panel-heading">
+                    <h3 class="panel-title center"><i class="fa fa-taxi"></i>  ActiveCab</h3>
+                  </div>
+                  <div class="panel-body center">
+
+                      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+                      <div><%= f.label :email %><br />
+                      <%= f.email_field :email, :autofocus => true %></div>
+
+                      <div><%= f.label :password %><br />
+                      <%= f.password_field :password %></div>
+
+                      <% if devise_mapping.rememberable? -%>
+                        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+                      <% end -%>
+                       <br><br> 
+                      <div><%= f.submit "Iniciar sesión", :class=>'btn btn-primary' %></div>
+                    <% end %>
+                     <br> 
+                    <%= render "devise/shared/links" %> 
+                    </div>
+                    <div class="col-lg-6">
+                      
+                    </div>
+              </div>
+
+
+
+
+
+</div></div></div></div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  run_own: MyString
+  nom_prop: MyString
+  apells_prop: MyString
+  tel_prop: MyString
+  email_prop: MyString
+
+two:
+  run_own: MyString
+  nom_prop: MyString
+  apells_prop: MyString
+  tel_prop: MyString
+  email_prop: MyString

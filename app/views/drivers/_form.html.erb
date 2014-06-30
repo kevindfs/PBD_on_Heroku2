@@ -1,0 +1,45 @@
+<%= form_for(@driver) do |f| %>
+  <% if @driver.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@driver.errors.count, "error") %> prohibited this driver from being saved:</h2>
+
+      <ul>
+      <% @driver.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Run_conductor %><br>
+    <%= f.text_field :run_driv %>
+  </div>
+  <div class="field">
+    <%= f.label :Nombre_conductor %><br>
+    <%= f.text_field :nom_cond %>
+  </div>
+  <div class="field">
+    <%= f.label :Apellidos_conductor %><br>
+    <%= f.text_field :apells_cond %>
+  </div>
+  <div class="field">
+    <%= f.label :Teléfono_1_conductor %><br>
+    <%= f.text_field :tel1_cond %>
+  </div>
+  <div class="field">
+    <%= f.label :Teléfono_2_conductor %><br>
+    <%= f.text_field :tel2_cond %>
+  </div>
+  <div class="field">
+    <%= f.label :Email_conductor %><br>
+    <%= f.text_field :email_cond %>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha_vencimiento_licencia_conducir %><br>
+    <%= f.date_select :venc_licenc_cond %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

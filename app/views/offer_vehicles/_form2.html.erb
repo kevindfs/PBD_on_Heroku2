@@ -1,0 +1,32 @@
+<%= form_for(@offer_vehicle) do |f| %>
+  <% if @offer_vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@offer_vehicle.errors.count, "error") %> prohibited this offer_vehicle from being saved:</h2>
+
+      <ul>
+      <% @offer_vehicle.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_bloque %><br>
+    <%= f.number_field :id_block %>
+    
+  </div>
+  <div class="field">
+    <%= f.label :rut_conductor %><br>
+    <%= f.text_field :run_driv %>
+    
+
+  </div>
+  <div class="field">
+    <%= f.label :estado_oferta %><br>
+    <%= f.text_field :est_oferta_veh, :value=>'Disponible' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

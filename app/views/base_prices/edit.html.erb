@@ -1,0 +1,12 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+<h1>Editar Precio Base</h1>
+
+<%= render 'form' %>
+
+
+<%= button_to 'Ver', @base_price, :method=>'get', :class=>'btn btn-info' %> |
+<%= button_to 'Volver', base_prices_path, :method=>'get', :class=>'btn btn-default' %>
+
+
+<% end %> 

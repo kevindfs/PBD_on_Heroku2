@@ -1,0 +1,45 @@
+<%= form_for(@vehicle) do |f| %>
+  <% if @vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+
+      <ul>
+      <% @vehicle.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Propietario %><br>
+    <p><%= f.select :run_own, options_for_select(@owners.collect{ |ow| ["Nombre: "+ow.nom_prop+", Rut: "+ow.run_own ,ow.run_own] })%></p>
+
+
+
+  </div>
+  <div class="field">
+    <%= f.label :Patente_Vehículo %><br>
+    <%= f.text_field :pat_veh %>
+  </div>
+  <div class="field">
+    <%= f.label :Marca_Vehículo %><br>
+    <%= f.text_field :mar_veh %>
+  </div>
+  <div class="field">
+    <%= f.label :Modelo_Vehículo %><br>
+    <%= f.text_field :model_veh %>
+  </div>
+  <div class="field">
+
+    <%= f.label :Tipo_vehículo %><br>
+  <p><%= f.select :tipo_veh, options_for_select([['sedan' ,'sedan'],['camioneta','camioneta']])%></p>
+  </div>
+  <div class="field">
+    <%= f.label :Kilómetros_recorridos%><br>
+    <%= f.number_field :km_sem_veh %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

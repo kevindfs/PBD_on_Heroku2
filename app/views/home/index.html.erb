@@ -1,0 +1,96 @@
+    <div id="myCarousel" class="carousel slide marg3" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="../../assets/veloz.jpg" alt="">
+          <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1><b>ActiveCab</b></h1>
+              <p>Un servicio de alta velocidad y comodidad <code>http://www.activecab.cl</code>Pida un taxi sin necesidad de gastar en una llamada telefónica</p>
+              <p><%= button_to 'Solicitud', {:controller => :travel_requests, :action=> :new} , :class => "btn btn-lg btn-primary"  %></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../../assets/taxi2.jpg" alt="">
+          <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <b><h1>Confía en la experiencia.</h1></b>
+              <p>Una empresa dedicada con más de 25 años de experiencia y calidad en el área del transporte de pasajeros</p>
+              <p><%= button_to 'Quienes somos', {:controller => :welcome, :action=> :qs} , :class => "btn btn-lg btn-primary"  %></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../../assets/ciudad.jpg" alt="">
+          <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <p><h1>Precios a tu alcance.</h1></p>
+              <p>Paga un precio justo de acuerdo a la distancia recorrida, ActiveCab permite que veas tarifas fijas de acuerdo a tu viaje</p>
+              <p><%= button_to 'Servicios y Tarifas', {:controller => :welcome, :action=> :tarifas} , :class => "btn btn-lg btn-primary"%></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span <i class="fa fa-angle-double-left flecha"></i></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span <i class="fa fa-angle-double-right flecha"></i></span></a>
+    </div>
+<!--Fin trans carrusel -->
+<!--Resto página-->
+    <div class="container marketing marg2">
+      <hr class="featurette-divider">
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">¿Necesitas un servicio de transporte para tu empresa? <span class="text-muted"></span></h2>
+          <p class="lead">ActiveCab tiene la solución, realiza un convenio con nosotros y consigue los <b>mejores precios</b>.</p>
+        </div>
+        <div class="col-md-5">
+        <br><br><br><br><br>
+          <img src="../../assets/logo1.jpg" alt="" class="img-rounded cent-ver" height="80px">
+
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+          <img src="../../assets/phone.png" alt="" class="img-rounded cent-ver" height="100%">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Solicitar viajes en radio taxi nunca fue tan fácil. <span class="text-muted">Pruebalo tu mismo!</span></h2>
+          <p class="lead">
+            Prueba el Sistema de ActiveCab y solicita tu viaje llenando un <b>sencillo</b> formulario, y espera nuestra respuesta. 
+
+          </p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Accede desde cualquier dispositivo<span class="text-muted">  Inténtalo ya!.</span></h2>
+          <p class="lead">
+            Prueba accediendo a nuestra web desde tu notebook, tablet o smartphone; con acceso a Internet y solicita tu servicio de RadioTaxis
+              
+          </p>
+        </div>
+        <div class="col-md-5">
+          <img src="../../assets/logo.jpg" alt="" class="img-circle cent-ver" height="200px">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+</div>
+
+<!--Resto página-->

@@ -1,0 +1,55 @@
+<br>
+
+<div class="container marg2">
+<br>
+    <div class="row">
+        <div class="col-lg-12 ">
+		
+
+        	<div class="col-lg-4">
+				<ul class="nav nav-pills nav-stacked largo">
+				  <li class="active"> <%=link_to "Distancia y valor", :controller => :operador, :action => :index %> </li>
+				  <li> <%=link_to "Disponibilidad de conductores", :controller => :operador, :action => :disp_conductor %> </li>
+				  <li> <%=link_to "Lista de solicitudes", :controller => :operador, :action => :solicitudes %> </li>
+				  <li> <%=link_to "Lista de usuarios registrados", :controller => :operador, :action => :usuarios_reg %> </li>		
+				</ul>
+			</div>
+			<div class = "col-lg-3">
+				<%= form_tag :action =>  'index' do %>
+				<p> Origen: <br>
+				<%= text_field_tag 'origen', @origen %></p>
+				<p> Destino: <br>
+				<%= text_field_tag 'destino', @destino %></p>
+				<%= submit_tag 'Solicitar tiempo y distancia' %>
+				<% end %>
+				
+			
+				<br>
+				<p><h4><b>Origen:</b><%= @origin_addresses%></h4></p>
+				<p><h4><b>Destino: </b><%= @destination_addresses%></h4></p>
+
+			
+
+				<p><h4><b>Distancia: </b><%=@distance_km%> Kms.</h4></p>
+				<p><h4><b>Tiempo de viaje estimado: </b><%=@duration_min%> minutos</h4></p>
+				<p><h4><b>Valor Kilometro: </b><%=@valor_km_vigente%></h4></p>
+				<p><h4><b>Valor Bajada de bandera: </b><%=@base_prices[0].val_base%></h4></p>
+				
+				<p><h4><b>Costo Total: </b><%=@costo_total%></h4></p>
+
+				<p><b>Status: </b><%= @status%></p>
+				<!--<p>result: <%= $result%></p>-->
+
+			</div>
+			<div class="col-lg-5">
+				<!--mapa estatico obligatorio por usar la Api -->
+				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d106521.15797659609!2d-70.66103282763665!3d-33.45487664038781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2scl!4v1403070577750" width="auto" height="300px" frameborder="0" style="border:0"></iframe>
+    	</div>
+	</div>      
+</div>
+<div class="alert alert-info center" role="alert">
+      <strong>Cuidado!</strong> Si las direcciones no son correctas ingrese mayor información de origen y/o destino
+    </div>
+
+			</div>
+			

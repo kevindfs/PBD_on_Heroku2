@@ -1,0 +1,15 @@
+class ConductorController < ApplicationController
+  def index
+<<<<<<< HEAD
+  	@travels = Travel.all
+  	@travel_requests = TravelRequest.all
+   end
+=======
+  	
+  end
+>>>>>>> origin/master
+
+  def calendario
+
+  end
+end

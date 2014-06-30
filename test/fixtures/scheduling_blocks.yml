@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ini_bloq: 2014-06-23 01:08:51
+  fin_bloq: 2014-06-23 01:08:51
+
+two:
+  ini_bloq: 2014-06-23 01:08:51
+  fin_bloq: 2014-06-23 01:08:51

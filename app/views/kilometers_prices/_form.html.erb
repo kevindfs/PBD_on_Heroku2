@@ -1,0 +1,37 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+  <%= form_for(@kilometers_price) do |f| %>
+    <% if @kilometers_price.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@kilometers_price.errors.count, "error") %> prohibited this kilometers_price from being saved:</h2>
+
+        <ul>
+        <% @kilometers_price.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :Valor_por_kilómetro %><br>
+      <%= f.number_field :val_km %>
+    </div>
+    <div class="field">
+      <%= f.label :Fecha_inicio_valor %><br>
+      <%= f.date_select :ini_val_km %>
+    </div>
+    <div class="field">
+      <%= f.label :Fecha_término_valor%><br>
+      <%= f.date_select :fin_val_km %>
+    </div>
+    <div class="field">
+      <%= f.label :Estado_valor %><br>
+      <%= f.text_field :estado_val_km %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+<% end %>

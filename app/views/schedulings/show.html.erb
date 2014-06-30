@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id oferta vehículo:</strong>
+  <%= @scheduling.id_off_veh %>
+</p>
+
+<p>
+  <strong>Run conductor:</strong>
+  <%= @scheduling.run_driv %>
+</p>
+
+<p>
+  <strong>Run cliente:</strong>
+  <%= @scheduling.run_cli %>
+</p>
+
+<%= button_to 'Editar', edit_scheduling_path(@scheduling) , :method => 'get', :class => 'btn btn-warning'%> |
+<%= button_to 'Volver', schedulings_path , :method => 'get', :class => 'btn btn-default'%>

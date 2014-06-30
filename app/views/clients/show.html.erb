@@ -1,0 +1,35 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Run cliente:</strong>
+  <%= @client.run_cli %>
+</p>
+
+<p>
+  <strong>Nombre cliente:</strong>
+  <%= @client.nom_cli %>
+</p>
+
+<p>
+  <strong>Apellidos cliente:</strong>
+  <%= @client.apells_cli %>
+</p>
+
+<p>
+  <strong>Teléfono 1 cliente:</strong>
+  <%= @client.tel1_cli %>
+</p>
+
+<p>
+  <strong>Teléfono 2 cliente:</strong>
+  <%= @client.tel2_cli %>
+</p>
+
+<p>
+  <strong>Email cliente:</strong>
+  <%= @client.email_cli %>
+</p>
+
+<%= button_to 'Editar', edit_client_path(@client), :method => 'get', :class => 'btn btn-warning' %> |
+<%= button_to 'Volver', clients_path, :method => 'get', :class => 'btn btn-default' %>

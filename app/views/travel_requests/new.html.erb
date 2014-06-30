@@ -1,0 +1,47 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+
+
+<% if user_signed_in? and current_user.tipo == 'cli_nat' %>
+
+<h1>Nueva Solicitud de Viaje</h1>
+
+<br><br>
+<br>
+
+
+<div class="col-lg-5 ">
+      <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Solicitud</h3>
+      </div>
+      <div class="panel-body">
+
+
+		<%= render 'form' %>
+
+	</div>
+             		</div>
+             	</div>
+
+
+
+            	</div>
+            	<div class="col-lg-4 ">
+            	</div>
+            	<div class="col-lg-3 ">
+            	</div>
+
+
+<% end %>
+</div>
+<%= button_to 'Volver', {:controller=>'home' , :method => 'get'}, :class => 'btn btn-default'%>
+</div>
+
+
+					
+

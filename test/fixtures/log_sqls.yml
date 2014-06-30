@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tms_log_sql: 2014-06-23
+  tabla_log_sql: MyString
+  operac_log_sql: MyString
+  usuar_log_sql: MyString
+  dat_antes_log_sql: MyString
+  dat_desp_log_sql: MyString
+  ope_det_log_sql: MyString
+
+two:
+  tms_log_sql: 2014-06-23
+  tabla_log_sql: MyString
+  operac_log_sql: MyString
+  usuar_log_sql: MyString
+  dat_antes_log_sql: MyString
+  dat_desp_log_sql: MyString
+  ope_det_log_sql: MyString

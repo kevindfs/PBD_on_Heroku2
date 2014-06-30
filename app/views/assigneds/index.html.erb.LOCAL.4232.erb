@@ -1,0 +1,52 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<h1>Lista de asignados</h1>
+<hr class="lineaB">
+<br><br><br>
+
+<div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de  asignados</div>
+      
+      <div class="panel-body">
+        <p class="center"> 
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+  <thead>
+    <tr>
+      <th>Id vehículo</th>
+      <th>Rut conductor</th>
+      <th>Inicio</th>
+      <th>Fin</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assigneds.each do |assigned| %>
+      <tr>
+        <td><%= assigned.id_veh %></td>
+        <td><%= assigned.run_driv %></td>
+        <td><%= assigned.ini_assigned %></td>
+        <td><%= assigned.fin_assigned %></td>
+        <td><%= link_to 'Ver', assigned %></td>
+        <td><%= link_to 'Editar', edit_assigned_path(assigned) %></td>
+        <td><%= link_to 'Eliminar', assigned, method: :delete, data: { confirm: 'Confirma eliminación?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo', new_assigned_path %>
+</div></div></div></div>

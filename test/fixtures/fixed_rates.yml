@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ori_tar: MyString
+  dest_tar: MyString
+  costo_tar: 1
+
+two:
+  ori_tar: MyString
+  dest_tar: MyString
+  costo_tar: 1

@@ -1,0 +1,62 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+  <h1>Listado de precios por kilómetro</h1>
+
+  <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de precios por kilómetro</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible modificar el costo de kilómetro.<br>
+        
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+    <thead>
+      <tr>
+        <th>Valor kilómetro</th>
+        <th>Fecha inicio vigencia</th>
+        <th>Fecha término vigencia</th>
+        <th>Estado valor</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @kilometers_prices.each do |kilometers_price| %>
+        <tr>
+          <td><%= kilometers_price.val_km %></td>
+          <td><%= kilometers_price.ini_val_km %></td>
+          <td><%= kilometers_price.fin_val_km %></td>
+          <td><%= kilometers_price.estado_val_km %></td>
+
+          <td><%= button_to 'Ver', kilometers_price, :method=>'get', :class=>'btn btn-info' %></td>
+          <td><%= button_to 'Editar', edit_kilometers_price_path(kilometers_price), :method=>'get', :class=>'btn btn-warning' %></td>
+          <td><%= button_to 'Destruir', kilometers_price, method: :delete, data: { confirm: '¿Confirma eliminación?' }, :method=>'get', :class=>'btn btn-danger' %></td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+
+  <%= button_to 'Nuevo', new_kilometers_price_path, :method=>'get', :class=>'btn btn-default' %>
+
+
+<% end %>
+
+</div>
+</div>
+</div>
+</div>

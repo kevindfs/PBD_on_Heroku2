@@ -1,0 +1,25 @@
+<%= form_for(@technical_review_expiration) do |f| %>
+  <% if @technical_review_expiration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@technical_review_expiration.errors.count, "error") %> prohibited this technical_review_expiration from being saved:</h2>
+
+      <ul>
+      <% @technical_review_expiration.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Mes_vencimiento_revisión_técnica %><br>
+    <%= f.text_field :mes_venc_rev_tec %>
+  </div>
+  <div class="field">
+    <%= f.label :Ultimo_dígito_de_patente %><br>
+    <%= f.number_field :num_venc_rev_tec %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

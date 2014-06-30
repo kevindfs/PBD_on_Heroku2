@@ -1,0 +1,59 @@
+<%= form_for(@travel_request) do |f| %>
+  <% if @travel_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@travel_request.errors.count, "error") %> prohibited this travel_request from being saved:</h2>
+
+      <ul>
+      <% @travel_request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <!--<%= f.label :Run_cliente %><br>-->
+    <%= f.hidden_field :run_cli, :value => current_user.rut %>
+  </div>
+  <div class="field">
+    <%= f.label :Dirección_origen %><br>
+    <%= f.text_field :dir_orig_sol %>
+  </div>
+    <div class="field">
+    <%= f.label :Comuna_origen %><br>
+    <!--<%= f.text_field :com_orig_sol %>-->
+    <p><%= f.select :com_orig_sol, options_for_select(@comunnes.collect{ |c| [c.nom_comun ,c.nom_comun] })%></p>
+
+
+
+  </div>
+  <div class="field">
+    <%= f.label :Dirección_destino %><br>
+    <%= f.text_field :dir_dest_sol %>
+  </div>
+  <div class="field">
+    <%= f.label :Comuna_destino %><br>
+    <!--<%= f.text_field :com_dest_sol %>-->
+        <p><%= f.select :com_dest_sol, options_for_select(@comunnes.collect{ |c| [c.nom_comun ,c.nom_comun] })%></p>
+
+  </div>
+  <div class="field">
+    <%= f.label :Cantidad_pasajeros %><br>
+    <%= f.number_field :cant_pasaj_sol %>
+  </div>
+  <div class="field">
+    <!--<%= f.label :fecha_crea_sol %><br>-->
+    <p hidden><%= f.datetime_select :fecha_crea_sol %></p>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha_que_necesita_servicio %><br>
+    <%= f.datetime_select :fecha_serv_sol %>
+  </div>
+  <div class="field">
+    <%= f.label :Estado_solicitud %><br>
+    <%= f.hidden_field :est_sol, :value=> 'Pendiente' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

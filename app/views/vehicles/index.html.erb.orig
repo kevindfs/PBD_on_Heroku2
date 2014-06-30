@@ -1,0 +1,56 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<h1>Listing vehicles</h1>
+
+<div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de vehículos</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible modificar los vehículos que asociados a ActiveCab.<br>
+        Cada vehículo esta asociado a un dueño, la modificación de estos datos se refleja en la vista de cada conductor.
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+  <thead>
+    <tr>
+      <th>Rut dueño</th>
+      <th>Patente vehículo</th>
+      <th>Marca vehículo</th>
+      <th>Modelo vehículo</th>
+      <th>Tipo vehículo</th>
+      <th>Km semanal vehículo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicles.each do |vehicle| %>
+      <tr>
+        <td><%= vehicle.run_own %></td>
+        <td><%= vehicle.pat_veh %></td>
+        <td><%= vehicle.mar_veh %></td>
+        <td><%= vehicle.model_veh %></td>
+        <td><%= vehicle.tipo_veh %></td>
+        <td><%= vehicle.km_sem_veh %></td>
+        <td><%= button_to 'Ver', vehicle , :method => 'get', :class => 'btn btn-info'%></td>
+        <td><%= button_to 'Editar', edit_vehicle_path(vehicle), :method => 'get', :class => 'btn btn-warning' %></td>
+        <td><%= button_to 'Eliminar', vehicle, method: :delete, data: { confirm: '¿Confirma eliminación?' }, :class => 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+</div></div></div></div>
+
+<%= button_to 'Nuevo', new_vehicle_path , :method => 'get', :class => 'btn btn-default'%>
+

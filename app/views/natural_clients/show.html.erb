@@ -1,0 +1,13 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Run cliente:</strong>
+	  <%= @natural_client.run_cli %>
+	</p>
+
+	<%= button_to 'Editar', edit_natural_client_path(@natural_client), :method => 'get', :class => 'btn btn-warning'%> |
+	<%= button_to 'Volver', natural_clients_path, :method => 'get', :class => 'btn btn-default' %>
+
+<% end %>

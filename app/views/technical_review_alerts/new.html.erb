@@ -1,0 +1,9 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+	<h1>Nueva Alerta Revisión Técnica</h1>
+
+	<%= render 'form' %>
+
+	<%= button_to 'Volver', technical_review_alerts_path, :method => 'get', :class => 'btn btn-default'%>
+
+<% end %>

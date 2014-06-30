@@ -1,0 +1,47 @@
+
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+  <h1>Listado de conceptos</h1>
+
+  <br><br><br>
+<div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de conceptos</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible ver, agregar o modificar conceptos.<br>
+        
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+
+    <thead>
+      <tr>
+        <th>Nombre concepto</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @concepts.each do |concept| %>
+        <tr>
+          <td><%= concept.nom_conc %></td>
+          <td><%= button_to 'Ver', concept, :method => 'get', :class => 'btn btn-info' %></td>
+          <td><%= button_to 'Editar', edit_concept_path(concept), :method => 'get', :class => 'btn btn-warning' %></td>
+          <td><%= button_to 'Eliminar', concept, method: :delete, data: { confirm: '¿Confirma eliminación?' }, :class => 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= button_to 'Nuevo', new_concept_path, :method => 'get', :class => 'btn btn-default' %>
+
+</div></div></div></div>

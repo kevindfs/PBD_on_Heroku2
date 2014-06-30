@@ -1,0 +1,29 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Valor por kilómetro:</strong>
+	  <%= @kilometers_price.val_km %>
+	</p>
+
+	<p>
+	  <strong>Fecha inicio de vigencia valor:</strong>
+	  <%= @kilometers_price.ini_val_km %>
+	</p>
+
+	<p>
+	  <strong>Fecha término de vigencia valor:</strong>
+	  <%= @kilometers_price.fin_val_km %>
+	</p>
+
+	<p>
+	  <strong>Estado vigencia valor:</strong>
+	  <%= @kilometers_price.estado_val_km %>
+	</p>
+
+	<%= button_to 'Editar', edit_kilometers_price_path(@kilometers_price), :method=>'get', :class=>'btn btn-warning' %> |
+	<%= button_to 'Volver', kilometers_prices_path, :method=>'get', :class=>'btn btn-default' %>
+
+
+<% end %>

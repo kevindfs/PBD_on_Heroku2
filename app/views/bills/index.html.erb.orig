@@ -1,0 +1,39 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+<h1>Listing bills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rut ent</th>
+      <th>Fecha fact</th>
+      <th>Total fact</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bills.each do |bill| %>
+      <tr>
+        <td><%= bill.rut_ent %></td>
+        <td><%= bill.fecha_fact %></td>
+        <td><%= bill.total_fact %></td>
+        <td><%= button_to 'Ver', bill, :method => 'get', :class => 'btn btn-info' %></td>
+        <td><%= button_to 'Editar', edit_bill_path(bill), :method => 'get', :class => 'btn btn-warning'%></td>
+        <td><%= button_to 'Eliminar', bill, method: :delete, data: { confirm: '¿Confirma eliminación?' } , :class => 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+</div></div></div>
+
+<%= button_to 'Nuevo', new_bill_path, :method => 'get', :class => 'btn btn-default' %>
+

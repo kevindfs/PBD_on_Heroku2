@@ -1,0 +1,76 @@
+
+<div class="container marg2">
+        <div class="row">
+            <div class="col-lg-12 ">
+            <br>
+            <div class="col-lg-4">
+            
+				<ul class="nav nav-pills nav-stacked largo">
+				  <li> <%=link_to "Distancia y valor", :controller => :operador, :action => :index %> </li>
+				  <li> <%=link_to "Disponibilidad de conductores", :controller => :operador, :action => :disp_conductor %> </li>
+				  <li> <%=link_to "Lista de solicitudes", :controller => :operador, :action => :solicitudes %> </li>
+				  <li class="active"> <%=link_to "Lista de usuarios registrados", :controller => :operador, :action => :usuarios_reg %> </li>
+				  
+											
+				</ul>
+    
+			</div>
+            
+
+		<div class="col-lg-8">
+          <div class="panel panel-primary">
+                <!-- Default panel contents -->
+                <div class="panel-heading center">Lista de clientes Naturales</div>
+                <div class="panel-body">
+                  <p class="center"> En esta sección es posible ver, agregar o modificar clientes registrados en ActiveCab.<br>
+                  
+                  </p>
+                </div>
+
+                <!-- Table -->
+                <table class="table">
+
+            <thead>
+              <tr>
+                <th>Rut </th>
+                <th>Email </th>
+                <th>Nombre </th>
+                <th>Apellidos </th> 
+                
+                <th>Teléfono 1 </th>
+                <th>Teléfono 2 </th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+
+             <% @users.each do |user| %>
+             	<%if user.tipo == 'cli_nat'%>
+	                <tr>
+	                  <td><%=user.rut%></td>
+	                  <td><%=user.email%></td>
+	                  <td><%= user.nombre %></td>
+	                  <td><%=user.apellidos%></td>
+	                  <td><%=user.telefono1%></td>
+	                  <td><%=user.telefono2%></td>
+	                </tr>
+                <%end%>
+              <% end %>
+            </tbody>
+          </table>
+
+        </div>  
+</div>
+      </div>
+</div>
+
+        </div>      
+
+    </div>
+
+
+

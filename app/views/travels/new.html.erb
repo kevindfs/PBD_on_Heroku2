@@ -1,0 +1,118 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+				<h1>Nuevo viaje</h1>
+					<br><br>	
+		            <div class="col-lg-4 ">
+       		          <div class="panel panel-success">
+			              <div class="panel-heading">
+			                <h3 class="panel-title">Solicitud</h3>
+		    	          </div>
+		                <div class="panel-body">
+	
+
+							<%= render 'form' %>
+
+						</div>
+					</div>
+					
+
+
+
+		            	
+		            </div>
+		            <div class="col-lg-3 ">
+						<div class="panel panel-default">
+						      <!-- Default panel contents -->
+						      <div class="panel-heading">Lista de solicitudes de viajes</div>
+
+
+						      <!-- Table -->
+						      <table class="table">
+						  <thead>
+						    <tr>
+						      <th>Rut conductor</th>
+						      <th>Id sol.</th>
+						    </tr>
+						  </thead>
+
+						  <tbody>
+
+
+
+
+						<% @drivers.each do |dr| %>	
+					      <tr>
+					        <td><%= dr.nom_cond %></td>
+					        <td><%= dr.run_driv %></td>
+					      </tr>
+						<% end %>
+							</tbody>
+						</table>
+
+
+
+
+
+
+
+
+		            	
+		            </div></div>
+		            <div class="col-lg-5 ">
+
+						<div class="panel panel-warning">
+						      <!-- Default panel contents -->
+						      <div class="panel-heading">Lista de viajes</div>
+
+
+						      <!-- Table -->
+						      <table class="table">
+						  <thead>
+						    <tr>
+						      <th>Id viaje</th>
+						      <th>Dirección origen</th>
+						      <th>Dirección destino</th>
+						    </tr>
+						  </thead>
+
+						  <tbody>
+
+
+
+
+						<% @travel_requests.each do |tr| %>	
+					      <tr>
+					        <td><%= tr.id_trav_req %></td>
+					        <td><%= tr.dir_orig_sol%></td>
+					        <td><%= tr.dir_dest_sol%></td>
+					      </tr>
+						<% end %>
+							</tbody>
+						</table>
+
+
+
+
+
+
+
+
+		            	
+
+
+
+
+
+
+		            	
+		            </div>
+
+
+
+
+
+
+</div></div></div>

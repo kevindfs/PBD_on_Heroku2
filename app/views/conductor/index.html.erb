@@ -1,0 +1,72 @@
+
+      <div class="container marg2">
+      <% if user_signed_in? and current_user.tipo == 'conductor' %>
+      <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+              <h1>Bienvenido <%=current_user.nombre%></h1><br>
+              <div class="col-lg-4 ">
+			           <ul class="nav nav-pills nav-stacked largo">
+			             <li class="active"> <%=link_to "Viajes", :controller => :conductor, :action => :index %> </li>
+			             <li> <%=link_to "Calendario", :controller => :conductor, :action => :calendario %> </li>
+			           </ul>
+               </div>
+            <div class="col-lg-8 ">         
+              <div class="panel panel-default">
+              <!-- Default panel contents -->
+                <div class="panel-heading">Lista de viajes de costo fijo</div>
+                  <div class="panel-body">
+                    <p class="center"> En esta sección es posible modificar los viajes de costo fijo perteneciente a ActiveCab.<br>
+                    El resultado de estas modificaciones se reflejan en la vista "Servicios y tarifas".
+                    </p>
+                  </div>
+            <!-- Table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Origen</th>
+            <th>Destino</th>
+            <th>Fecha y Hora</th>
+            <th>Costo</th>
+          </tr>
+        </thead>
+        <tbody>               
+    
+
+  <%@cont=1%>
+	<%@travels.each do |t| %>
+    <%@travel_requests.order("fecha_serv_sol asc" ).each do |tr|%>
+      <%@clients.each do |cl| %>
+    		<%if t.run_driv==current_user.rut and tr.id_trav_req==t.id_trav_req and tr.est_sol== "Pendiente" and tr.run_cli == cl.run_cli%>
+          <tr>
+          <td><%= @cont %></td>
+          <td><%= cl.nom_cli+"  "+cl.apells_cli  %></td>
+          <td><%= tr.dir_orig_sol+" , "+tr.com_orig_sol  %></td>
+          <td><%= tr.dir_dest_sol+" , "+tr.com_dest_sol  %></td>
+          <td><%= tr.fecha_serv_sol.strftime("%d/%m/%Y  %H:%M") %></td>
+          <td><%= t.val_via %></td>
+          <td></td>
+          <%@cont = @cont + 1%>
+          </tr>
+    	  <%end%>
+      <%end%>
+    <%end%>
+	<% end %>
+
+        </tbody>
+      </table>
+
+        </div>      
+    </div>
+    </div>   
+<% end %>
+     </div>
+
+
+
+
+
+
+

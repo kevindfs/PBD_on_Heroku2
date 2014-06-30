@@ -1,0 +1,70 @@
+
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12">
+<% if user_signed_in? and current_user.rut == @travel_request.run_cli %>
+            <div class="alert alert-success center" role="alert">
+              <strong>Bien hecho!</strong> Tu solicitud ha sido enviada con exito. Espera nuestro llamado <%=link_to 'ActiveCab',{:controller=>'home'}, :class=>'alert-link'%>
+            </div>
+
+<p id="notice"><%= notice %></p>
+
+<!--<p>
+  <strong>Run cliente:</strong>
+  <%= @travel_request.run_cli %>
+</p>-->
+
+<p>
+  <strong>Dirección origen:</strong>
+  <%= @travel_request.dir_orig_sol %>
+</p>
+
+<p>
+  <strong>Dirección destino:</strong>
+  <%= @travel_request.dir_dest_sol %>
+</p>
+
+<p>
+  <strong>Comuna origen:</strong>
+  <%= @travel_request.com_orig_sol %>
+</p>
+
+<p>
+  <strong>Comuna destino:</strong>
+  <%= @travel_request.com_dest_sol %>
+</p>
+
+<p>
+  <strong>Cantidad pasajeros:</strong>
+  <%= @travel_request.cant_pasaj_sol %>
+</p>
+
+<p>
+  <strong>Fecha creación solicitud:</strong>
+  <%= @travel_request.fecha_crea_sol.strftime("%d/%m/%Y  %H:%M") %>
+</p>
+
+<p>
+  <strong>Fecha que necesita servicio:</strong>
+  <%= @travel_request.fecha_serv_sol.strftime("%d/%m/%Y  %H:%M") %>
+</p>
+
+<!--<p>
+  <strong>Estado solicitud:</strong>
+  <%= @travel_request.est_sol %>
+</p>-->
+
+<!--<%= button_to 'Editar', edit_travel_request_path(@travel_request) , :method => 'get', :class => 'btn btn-warning'  %> | -->
+<%=button_to 'Atras',{:controller=>'home'}, :class=>'btn btn-success' %>
+<% else %>
+
+
+<p>No se encuentra habilitado para ver esta solicitud </p>
+
+
+<% end %>
+
+
+</div></div></div>

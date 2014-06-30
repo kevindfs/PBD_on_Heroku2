@@ -1,0 +1,58 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<h1>Listado de logs de auditoría</h1>
+
+  <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de logs de auditoría</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible ver y modificar el log de auditoría.<br>
+        
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+  <thead>
+    <tr>
+      <th>Tms log sql</th>
+      <th>Tabla log sql</th>
+      <th>Operac log sql</th>
+      <th>Usuar log sql</th>
+      <th>Dat antes log sql</th>
+      <th>Dat desp log sql</th>
+      <th>Ope det log sql</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @log_sqls.each do |log_sql| %>
+      <tr>
+        <td><%= log_sql.tms_log_sql %></td>
+        <td><%= log_sql.tabla_log_sql %></td>
+        <td><%= log_sql.operac_log_sql %></td>
+        <td><%= log_sql.usuar_log_sql %></td>
+        <td><%= log_sql.dat_antes_log_sql %></td>
+        <td><%= log_sql.dat_desp_log_sql %></td>
+        <td><%= log_sql.ope_det_log_sql %></td>
+        <td><%= button_to 'Ver', log_sql , :method => 'get', :class => 'btn btn-info'%></td>
+        <td><%= button_to 'Editar', edit_log_sql_path(log_sql), :method => 'get', :class => 'btn btn-warning' %></td>
+        <td><%= button_to 'Eliminar', log_sql, method: :delete, data: { confirm: '¿Confirma eliminación?' } , :class => 'btn btn-danger'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+</div></div></div></div>
+
+<%= button_to 'Nuevo', new_log_sql_path, :method => 'get', :class => 'btn btn-default' %>
+

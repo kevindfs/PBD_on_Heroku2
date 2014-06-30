@@ -1,0 +1,95 @@
+<%= form_for(@travel_request) do |f| %>
+  <% if @travel_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@travel_request.errors.count, "error") %> prohibited this travel_request from being saved:</h2>
+
+      <ul>
+      <% @travel_request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+
+  <div class="field">
+
+  <!--<p>  <%= f.label :RUT_cliente   %>  <%= current_user.rut%></p><br> -->
+    <%= f.hidden_field :run_cli, :value => current_user.rut  %>
+
+    
+      
+  </div>
+  <div class="field">
+<<<<<<< HEAD
+    <%= f.label :dirección_origen %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.text_field :dir_orig_sol %><br> 
+  </div>
+  <div class="field">
+    <%= f.label :dirección_destino %>&nbsp;&nbsp;&nbsp;
+    <%= f.text_field :dir_dest_sol %><br>
+  </div>
+  <div class="field">
+    <%= f.label :comuna_origen %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.text_field :com_orig_sol %><br>
+  </div>
+  <div class="field">
+    <%= f.label :comuna_destino %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.text_field :com_dest_sol %><br>
+  </div>
+  <div class="field">
+    <%= f.label :cantidad_pasajeros %>
+    <%= f.number_field :cant_pasaj_sol %><br>
+  </div>
+  <div class="field">
+  <p hidden>  <%= f.label :fecha_crea_sol %><br>
+    <%= f.date_select :fecha_crea_sol %> </p>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_servicio %>
+    <%= f.date_select :fecha_serv_sol %><br>
+  </div>
+  <div class="field">
+    <!--<%= f.label :est_sol %><br>-->
+    <%= f.hidden_field :est_sol, :value=> 'Pendiente' %>
+=======
+    <%= f.label :Dirección_origen %><br>
+    <%= f.text_field :dir_orig_sol %>
+  </div>
+  <div class="field">
+    <%= f.label :Comuna_origen %><br>
+    <%= f.text_field :com_orig_sol %>
+  </div>
+  <div class="field">
+    <%= f.label :dirección_destino %><br>
+    <%= f.text_field :dir_dest_sol %>
+  </div>
+  <div class="field">
+    <%= f.label :Comuna_destino %><br>
+    <%= f.text_field :com_dest_sol %>
+  </div>
+  <div class="field">
+    <%= f.label :Cantidad_de_pasajeros %><br>
+    <%= f.number_field :cant_pasaj_sol %>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha_creación %><br>
+    <%= f.date_select :fecha_crea_sol %>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha_que_necesita_servicio %><br>
+    <%= f.date_select :fecha_serv_sol %>
+  </div>
+  <div class="field">
+    <%= f.label :Estado_solicitud %><br>
+    <%= f.text_field :est_sol %>
+>>>>>>> c5d322164b361f4ecfe0fb6510562939b2211b2e
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  val_km: 1
+  ini_val_km: 2014-06-23
+  fin_val_km: 2014-06-23
+  estado_val_km: MyString
+
+two:
+  val_km: 1
+  ini_val_km: 2014-06-23
+  fin_val_km: 2014-06-23
+  estado_val_km: MyString

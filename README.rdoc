@@ -1,0 +1,56 @@
+BOTONES:
+
+AGREGAR: btn btn-default -> AGREGAR
+NARANJA: btn btn-warning -> MODIFICAR/EDITAR
+ROJO: btn btn-danger -> ELIMINAR
+CELESTE: btn btn-info -> VER
+GRIS: btn btn-default -> VOLVER
+
+FORMATO BOTONES:
+de link_to a:
+<%= button_to 'Ver', :method => 'get', :class => 'btn btn-info'@vehicle %> 
+
+|
+ELIMINAR , :method => 'get', :class => 'btn btn-danger'
+VER , :method => 'get', :class => 'btn btn-info'
+EDITAR , :method => 'get', :class => 'btn btn-warning'
+VOLVER , :method => 'get', :class => 'btn btn-default'
+
+NUEVO , :method => 'get', :class => 'btn btn-default'
+Eliminar2 , :class => 'btn btn-danger'
+¿Confirma eliminación?
+
+
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+Modelo Owner
+
+
+

@@ -1,0 +1,45 @@
+<%= form_for(@log_sql) do |f| %>
+  <% if @log_sql.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@log_sql.errors.count, "error") %> prohibited this log_sql from being saved:</h2>
+
+      <ul>
+      <% @log_sql.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :TMS_log_sql %><br>
+    <%= f.date_select :tms_log_sql %>
+  </div>
+  <div class="field">
+    <%= f.label :Tabla_log_sql %><br>
+    <%= f.text_field :tabla_log_sql %>
+  </div>
+  <div class="field">
+    <%= f.label :Operación_log_sql %><br>
+    <%= f.text_field :operac_log_sql %>
+  </div>
+  <div class="field">
+    <%= f.label :Usuario_log_sql %><br>
+    <%= f.text_field :usuar_log_sql %>
+  </div>
+  <div class="field">
+    <%= f.label :Datos_antes_log_sql %><br>
+    <%= f.text_field :dat_antes_log_sql %>
+  </div>
+  <div class="field">
+    <%= f.label :Datos_después_log_sql %><br>
+    <%= f.text_field :dat_desp_log_sql %>
+  </div>
+  <div class="field">
+    <%= f.label :Operación_det_log_sql %><br>
+    <%= f.text_field :ope_det_log_sql %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

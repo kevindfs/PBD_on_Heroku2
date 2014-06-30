@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nom_comun: MyString
+  num_comun: 1
+
+two:
+  nom_comun: MyString
+  num_comun: 1

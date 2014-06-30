@@ -1,0 +1,64 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+<h1>Listado de clientes</h1>
+
+<br><br><br>
+<div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de clientes</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible ver, agregar o modificar clientes registrados en ActiveCab.<br>
+        
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+
+  <thead>
+    <tr>
+      <th>Rut </th>
+      <th>Nombre </th>
+      <th>Apellidoss </th>
+      <th>Teléfono 1 </th>
+      <th>Teléfono 2 </th>
+      <th>Email </th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+
+  <%@users.each do |user| %>
+    <% if(user.rut == "1-9" and user.tipo == 'cli_nat') %>
+      <%= user.nombre %>
+      <%= user.tipo %>
+    <% end %>
+
+  <% end %>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.run_cli %></td>
+        <td><%= client.nom_cli %></td>
+        <td><%= client.apells_cli %></td>
+        <td><%= client.tel1_cli %></td>
+        <td><%= client.tel2_cli %></td>
+        <td><%= client.email_cli %></td>
+        <td><%= button_to 'Ver', client , :method => 'get', :class => 'btn btn-info'%></td>
+        <td><%= button_to 'Editar', edit_client_path(client), :method => 'get', :class => 'btn btn-warning' %></td>
+        <td><%= button_to 'Eliminar', client, method: :delete, data: { confirm: '¿Confirma eliminación?' }, :class => 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'Nuevo', new_client_path, :method => 'get', :class => 'btn btn-default' %>
+</div></div></div></div>

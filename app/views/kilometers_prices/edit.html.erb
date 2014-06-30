@@ -1,0 +1,11 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+
+<h1>Editar Precio por Kilómetro</h1>
+
+<%= render 'form' %>
+
+<%= button_to 'Ver', @kilometers_price, :method=>'get', :class=>'btn btn-info' %> |
+<%= button_to 'Volver', kilometers_prices_path, :method=>'get', :class=>'btn btn-default' %>
+
+
+<% end %>

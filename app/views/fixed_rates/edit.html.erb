@@ -1,0 +1,22 @@
+<% if user_signed_in? and current_user.tipo == 'administrador' %>
+  <div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">   
+
+				<h1>Editar viajes de costo fijo</h1>
+
+				<%= render 'form' %>
+
+				<%= button_to 'Ver', @fixed_rate, :method=>'get', :class=>'btn btn-info' %> |
+				<%= button_to 'Volver', fixed_rates_path, :method=>'get' :class=>'btn btn-default' %>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<% end %>

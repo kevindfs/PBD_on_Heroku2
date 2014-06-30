@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id viaje:</strong>
+  <%= @state_history.id_trav %>
+</p>
+
+<p>
+  <strong>Id estado:</strong>
+  <%= @state_history.id_stat %>
+</p>
+
+<%= button_to 'Editar', edit_state_history_path(@state_history) , :method => 'get', :class => 'btn btn-warning'%> |
+<%= button_to 'Volver', state_histories_path , :method => 'get', :class => 'btn btn-default'%>

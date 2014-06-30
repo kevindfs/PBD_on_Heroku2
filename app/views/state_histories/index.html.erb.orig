@@ -1,0 +1,49 @@
+<div class="container marg2">
+    <br>
+    <br><br>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+<h1>Listado de historial de estados</h1>
+
+  <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Lista de historial de estados</div>
+      <div class="panel-body">
+        <p class="center"> En esta sección es posible modificar la lista de historial de estados.<br>
+        
+        </p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+
+  <thead>
+    <tr>
+      <th>Id viaje</th>
+      <th>Id estado</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @state_histories.each do |state_history| %>
+      <tr>
+        <td><%= state_history.id_trav %></td>
+        <td><%= state_history.id_stat %></td>
+        <td><%= button_to 'Ver', state_history , :method => 'get', :class => 'btn btn-info'%></td>
+        <td><%= button_to 'Editar', edit_state_history_path(state_history) , :method => 'get', :class => 'btn btn-warning'%></td>
+        <td><%= button_to 'Eliminar', state_history, method: :delete, data: { confirm: '¿Confirma eliminación?' } , :class => 'btn btn-danger'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+</div></div></div>
+
+<%= button_to 'Nuevo', new_state_history_path, :method => 'get', :class => 'btn btn-default'%>
+
