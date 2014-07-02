@@ -96,7 +96,7 @@
 
 
 </head>
-
+<!--menu cliente natural -->
 <% if user_signed_in? and current_user.tipo == 'cli_nat'%>
 
 
@@ -253,7 +253,7 @@
 
 <!--Inicio cabecera conectado como operador-->
 
-<% elsif user_signed_in? and current_user.tipo == 'conductor'%>
+<% elsif user_signed_in? and current_user.tipo == 'operador'%>
 
 
 
